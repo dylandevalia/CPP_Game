@@ -5,9 +5,15 @@
 using namespace std;
 
 /**
-State - Main menu
+State - Play state
 */
 
+/**
+Constructor
+
+@param pGame         Pointer to the current engine
+@param pStateManager Pointer to the state manager
+*/
 PlayState::PlayState(GameEngine* pGame, StateManager* pStateManager)
 	: m_pGame(pGame), m_pStateManager(pStateManager) {
 
@@ -17,6 +23,7 @@ PlayState::~PlayState() {
 
 }
 
+/**  */
 void PlayState::setup() {
 	cout << "State - PLAY" << endl;
 }
@@ -30,9 +37,10 @@ void PlayState::draw() {
 	m_pGame->Redraw(true);
 }
 
-
-
+/* ------ */
 /* Events */
+/* ------ */
+
 void PlayState::keyDown(int iKeyCode) {
 	switch (iKeyCode) {
 		case SDLK_SPACE:
@@ -61,3 +69,21 @@ void PlayState::mouseDown(int iButton, int iX, int iY) {
 void PlayState::mouseUp(int iButton, int iX, int iY) {
 
 }
+
+/* -------- */
+/* Overides */
+/* -------- */
+
+int PlayState::initialiseObjects() {
+	return 0;
+}
+
+void PlayState::setupBackgroundBuffer() {
+
+}
+
+void PlayState::drawStrings() {
+
+}
+
+

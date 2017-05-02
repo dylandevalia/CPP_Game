@@ -18,18 +18,26 @@ private:
 
 public:
 	PauseState(GameEngine*, StateManager*);
-	virtual ~PauseState();
+	~PauseState();
 
-	virtual void setup();
-	virtual void update();
-	virtual void draw();
+	void setup();
+	void update();
+	void draw();
 
-	/* Events */
-	virtual void keyDown(int);
-	virtual void keyUp(int);
-	virtual void mouseMoved(int, int);
-	virtual void mouseDown(int, int, int);
-	virtual void mouseUp(int, int, int);
+	// Events 
+
+	void keyDown(int);
+	void keyUp(int);
+	void mouseMoved(int, int);
+	void mouseDown(int, int, int);
+	void mouseUp(int, int, int);
+
+	// Overides
+
+	int initialiseObjects();
+	void setupBackgroundBuffer();
+	void drawStrings();
+
 private:
 
 };

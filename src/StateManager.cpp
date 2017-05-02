@@ -16,6 +16,11 @@ StateManager::StateManager(GameEngine* pEngine, GameState state)
 
 StateManager::~StateManager() {}
 
+/**
+Initialises the state and runs it's setup
+
+@param state The state to initialise
+*/
 void StateManager::initState(GameState state) {
 	switch (state) {
 		case GameState::MENU:
@@ -39,6 +44,11 @@ void StateManager::initState(GameState state) {
 	}
 }
 
+/**
+Sets the current state
+
+@param state The state to set to current state
+*/
 void StateManager::setState(GameState state) {
 	switch (state) {
 		case MENU:
@@ -53,6 +63,11 @@ void StateManager::setState(GameState state) {
 	}
 }
 
+/** 
+Unloads the state and deletes all its content
+
+@param state Unloads this state
+*/
 void StateManager::unloadState(GameState state) {
 	switch (state) {
 		case MENU:

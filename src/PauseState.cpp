@@ -31,8 +31,10 @@ void PauseState::draw() {
 }
 
 
-
+/* ------ */
 /* Events */
+/* ------ */
+
 void PauseState::keyDown(int iKeyCode) {
 	m_pStateManager->initState(GameState::PLAY);
 	m_pStateManager->setState(GameState::PLAY);
@@ -51,5 +53,21 @@ void PauseState::mouseDown(int iButton, int iX, int iY) {
 }
 
 void PauseState::mouseUp(int iButton, int iX, int iY) {
+
+}
+
+/* -------- */
+/* Overides */
+/* -------- */
+
+int PauseState::initialiseObjects() {
+	return 0;
+}
+
+void PauseState::setupBackgroundBuffer() {
+
+}
+
+void PauseState::drawStrings() {
 
 }

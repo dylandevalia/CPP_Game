@@ -34,11 +34,17 @@ public:
 	void draw() { m_pCurrrentState->draw(); }
 	void update() { m_pCurrrentState->update(); }
 
-	/* Events */
+	// Event 
+
 	void keyDown(int iKeyCode) { m_pCurrrentState->keyDown(iKeyCode); }
 	void keyUp(int iKeyCode) { m_pCurrrentState->keyUp(iKeyCode); }
 	void mouseMoved(int iX, int iY) { m_pCurrrentState->mouseMoved(iX, iY); }
 	void mouseDown(int iButton, int iX, int iY) { m_pCurrrentState->mouseDown(iButton, iX, iY); }
 	void mouseUp(int iButton, int iX, int iY) { m_pCurrrentState->mouseUp(iButton, iX, iY); }
-};
 
+	// Overides
+
+	int initialiseObjects() { return m_pCurrrentState->initialiseObjects(); }
+	void setupBackgroundBuffer() { m_pCurrrentState->setupBackgroundBuffer(); }
+	void drawStrings() { m_pCurrrentState->drawStrings(); }
+};

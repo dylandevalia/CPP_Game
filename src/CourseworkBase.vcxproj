@@ -92,6 +92,7 @@
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="ObjectArray.h" />
     <ClInclude Include="PauseState.h" />
+    <ClInclude Include="PlasmaOrb.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="header.h" />
@@ -124,6 +125,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="PauseState.cpp" />
+    <ClCompile Include="PlasmaOrb.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="mainfunction.cpp" />
