@@ -1,5 +1,7 @@
 #include "PlayState.h"
 
+#include "PlasmaOrb.h"
+
 #include <iostream>
 
 using namespace std;
@@ -26,10 +28,11 @@ PlayState::~PlayState() {
 /**  */
 void PlayState::setup() {
 	cout << "State - PLAY" << endl;
+	initialiseObjects();
 }
 
 void PlayState::update() {
-
+	m_pGame->UpdateAllObjects(m_pGame->GetModifiedTime());
 }
 
 void PlayState::draw() {
@@ -44,11 +47,13 @@ void PlayState::draw() {
 void PlayState::keyDown(int iKeyCode) {
 	switch (iKeyCode) {
 		case SDLK_SPACE:
-			m_pStateManager->initState(GameState::PAUSE);
+			if (!m_pStateManager->isLoaded(GameState::PAUSE)) {
+				m_pStateManager->initState(GameState::PAUSE);
+			}
 			m_pStateManager->setState(GameState::PAUSE);
 			break;
 		case SDLK_ESCAPE:
-			m_pStateManager->initState(GameState::MENU);
+			//m_pStateManager->initState(GameState::MENU);
 			m_pStateManager->setState(GameState::MENU);
 			break;
 	}
@@ -75,6 +80,18 @@ void PlayState::mouseUp(int iButton, int iX, int iY) {
 /* -------- */
 
 int PlayState::initialiseObjects() {
+	cout << "Hi" << endl;
+	// Informs the engine that the drawable objects have changed
+	m_pGame->DrawableObjectsChanged();
+
+	// Destorys all existing objects
+	m_pGame->DestoryOldObjects();
+
+	// Creates new array and adds new object
+	m_pGame->CreateObjectArray(0);
+	m_pGame->StoreObjectInArrayAtEnd(new PlasmaOrb(m_pGame));
+	m_pGame->StoreObjectInArrayAtEnd(NULL);
+
 	return 0;
 }
 

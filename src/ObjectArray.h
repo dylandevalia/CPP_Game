@@ -118,8 +118,10 @@ public:
 
 	@param value New value to go into the array
 	@param index The index to add the value before
+
+	@return Returns index of value in array
 	*/
-	void insertBefore(int index, DisplayableObject* value) {
+	int insertBefore(int index, DisplayableObject* value) {
 		// Data validation
 		assert(index >= 0 && index <= m_nLength);
 
@@ -143,12 +145,14 @@ public:
 		delete[] m_pData;
 		m_pData = data;
 		++m_nLength;
+
+		return index;
 	}
 	
 	/* Insert value at beginning of object array */
-	void insertAtBeginning(DisplayableObject* value) { insertBefore(0, value); }
+	int insertAtBeginning(DisplayableObject* value) { return insertBefore(0, value); }
 	/* Insert value at end of object array */
-	void insertAtEnd(DisplayableObject* value) { insertBefore(m_nLength, value); }
+	int insertAtEnd(DisplayableObject* value) { return insertBefore(m_nLength, value); }
 
 
 

@@ -8,7 +8,7 @@ Object which extends base engine
 handles draw and main loop
 */
 Game::Game()
-	: GameEngine(20),            // Maximum number of moving objects
+	: GameEngine(0),             // Maximum number of moving objects
 	m_GSM(this, GameState::MENU) // Start in menu state
 {
 	Initialise(NULL, SCREEN_WIDTH, SCREEN_HEIGHT, "VT323-Regular.ttf", 24);

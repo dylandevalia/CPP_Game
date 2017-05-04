@@ -7,7 +7,7 @@
 #include "State.h"
 #include "Enums.h"
 
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ private:
 	/* Array of states */
 	State** m_aStates;
 	/* Current state */
-	State* m_pCurrrentState;
+	State* m_pCurrrentState = new State();
 
 	/* Reference to engine */
 	GameEngine* m_pEngine;
@@ -29,6 +29,7 @@ public:
 	void initState(GameState);
 	void setState(GameState);
 	void unloadState(GameState);
+	bool isLoaded(GameState);
 
 	void setup() { m_pCurrrentState->setup(); }
 	void draw() { m_pCurrrentState->draw(); }

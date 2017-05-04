@@ -27,7 +27,7 @@ void Demo4Main::SetupBackgroundBuffer()
 	switch( m_state )
 	{
 	case stateInit: // Reload the level data
-		FillBackground( 0xffff00 );
+		FillBackground(0xffff00);
 		{
 			char* data[] = {
 				"bbbbbbbbbbbbbbb",
@@ -40,7 +40,18 @@ void Demo4Main::SetupBackgroundBuffer()
 				"bahadadhdadadab",
 				"bfbcbcbibcbibeb",
 				"badadadadadadab",
-				"bbbbbbbbbbbbbbb" };
+				"bbbbbbbbbbbbbbb"
+			};
+
+			char* ndata[] = {
+				"123456789_123",
+				"2234567890123",
+				"3234567890123",
+				"4234567890123",
+				"5234567890123",
+				"6234567890123",
+				"7234567890123",
+			};
 
 			// Specify how many tiles wide and high
 			m_oTiles.SetSize( 15, 11 ); 

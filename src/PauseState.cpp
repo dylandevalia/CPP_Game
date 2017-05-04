@@ -19,6 +19,7 @@ PauseState::~PauseState() {
 
 void PauseState::setup() {
 	cout << "State - PAUSE" << endl;
+	initialiseObjects();
 }
 
 void PauseState::update() {
@@ -26,7 +27,7 @@ void PauseState::update() {
 }
 
 void PauseState::draw() {
-	m_pGame->FillBackground(0xFFCDD2);
+	m_pGame->SetupBackgroundBuffer();
 	m_pGame->Redraw(true);
 }
 
@@ -36,8 +37,9 @@ void PauseState::draw() {
 /* ------ */
 
 void PauseState::keyDown(int iKeyCode) {
-	m_pStateManager->initState(GameState::PLAY);
+	//m_pStateManager->initState(GameState::PLAY);
 	m_pStateManager->setState(GameState::PLAY);
+	m_pGame->Redraw(true);
 }
 
 void PauseState::keyUp(int iKeyCode) {
@@ -65,7 +67,7 @@ int PauseState::initialiseObjects() {
 }
 
 void PauseState::setupBackgroundBuffer() {
-
+	m_pGame->FillBackground(0xFFCDD2);
 }
 
 void PauseState::drawStrings() {

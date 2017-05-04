@@ -12,5 +12,9 @@ public:
 	~PlasmaOrb();
 
 	void Draw();
+	void update();
+
+private:
+	int m_iDirX, m_iDirY;
 };
 

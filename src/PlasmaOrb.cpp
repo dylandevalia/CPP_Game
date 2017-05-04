@@ -11,6 +11,8 @@ PlasmaOrb::PlasmaOrb(BaseEngine* pEngine)
 	m_iDrawWidth = 100;
 	m_iDrawHeight = 50;
 
+	m_iDirX = m_iDirY = 2;
+
 	SetVisible(true);
 }
 
@@ -20,6 +22,7 @@ PlasmaOrb::~PlasmaOrb()
 }
 
 void PlasmaOrb::Draw() {
+	//printf("Draw\n");
 	GetEngine()->DrawScreenOval(
 		// Top Left
 		m_iCurrentScreenX,
@@ -32,4 +35,19 @@ void PlasmaOrb::Draw() {
 	);
 
 	StoreLastScreenPositionForUndraw();
+}
+
+void PlasmaOrb::update() {
+	//printf("Update");
+	m_iCurrentScreenX += m_iDirX;
+	m_iCurrentScreenY += m_iDirY;
+
+	if (m_iCurrentScreenX <= 0 || m_iCurrentScreenX >= GetEngine()->GetScreenWidth() - m_iDrawWidth) {
+		m_iDirX *= -1;
+	}
+	if (m_iCurrentScreenY <= 0 || m_iCurrentScreenY >= GetEngine()->GetScreenHeight() - m_iDrawHeight) {
+		m_iDirY *= -1;
+	}
+
+	RedrawObjects();
 }

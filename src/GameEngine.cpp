@@ -20,11 +20,13 @@ void GameEngine::DestoryOldObjects() {
 void GameEngine::UpdateAllObjects(int iCurrentTime) {
 	m_iDrawableObjectsChanged = 0;
 
-	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		m_pObjectArray[i]->DoUpdate(iCurrentTime);
+	for (int i = 0; i < m_pObjectArray.getLength() - 1; i++) {
+		if (m_pObjectArray[i] != NULL) { m_pObjectArray[i]->DoUpdate(iCurrentTime); }
 
 		if (m_iDrawableObjectsChanged) { return; }
 	}
+
+	// if (m_pObjectArray[m_pObjectArray.getLength() - 1] != NULL) { m_pObjectArray[m_pObjectArray.getLength() - 1]->DoUpdate(iCurrentTime); }
 }
 
 /* Redraws the background behind each of the displayable objects, in their old positions. */
@@ -32,7 +34,7 @@ void GameEngine::UndrawObjects() {
 	m_iDrawableObjectsChanged = 0;
 
 	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		m_pObjectArray[i]->RedrawBackground();
+		if (m_pObjectArray[i] != NULL) { m_pObjectArray[i]->RedrawBackground(); }
 
 		if (m_iDrawableObjectsChanged) { return; }
 	}
@@ -43,7 +45,7 @@ void GameEngine::DrawObjects() {
 	m_iDrawableObjectsChanged = 0;
 
 	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		m_pObjectArray[i]->Draw();
+		if (m_pObjectArray[i] != NULL) { m_pObjectArray[i]->Draw(); }
 
 		if (m_iDrawableObjectsChanged) { return; }
 	}
@@ -60,7 +62,7 @@ DisplayableObject* GameEngine::GetDisplayableObject(int iIndex) {
 /* Send a specified notification value to all displayable objects */
 void GameEngine::NotifyAllObjects(int iSignalNumber) {
 	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		m_pObjectArray[i]->Notify(iSignalNumber);
+		if (m_pObjectArray[i] != NULL) { m_pObjectArray[i]->Notify(iSignalNumber); }
 	}
 }
 
@@ -69,8 +71,10 @@ int GameEngine::NotifyAllObjectsGetCountNonZero(int iSignalNumber) {
 	int iReturn = 0;
 
 	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		if (m_pObjectArray[i]->Notify(iSignalNumber) != 0) {
-			iReturn++;
+		if (m_pObjectArray[i] != NULL) {
+			if (m_pObjectArray[i]->Notify(iSignalNumber) != 0) {
+				iReturn++;
+			}
 		}
 	}
 
@@ -82,7 +86,9 @@ int GameEngine::NotifyAllObjectsGetSum(int iSignalNumber) {
 	int iReturn = 0;
 
 	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		iReturn += m_pObjectArray[i]->Notify(iSignalNumber);
+		if (m_pObjectArray[i] != NULL) {
+			iReturn += m_pObjectArray[i]->Notify(iSignalNumber);
+		}
 	}
 
 	return iReturn;
@@ -93,8 +99,10 @@ int GameEngine::NotifyAllObjectsGetMax(int iSignalNumber) {
 	int iReturn = 0;
 
 	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		int iVal = m_pObjectArray[i]->Notify(iSignalNumber);
-		if (iVal > iReturn) { iReturn = iVal; }
+		if (m_pObjectArray[i] != NULL) {
+			int iVal = m_pObjectArray[i]->Notify(iSignalNumber);
+			if (iVal > iReturn) { iReturn = iVal; }
+		}
 	}
 
 	return iReturn;
@@ -105,8 +113,10 @@ int GameEngine::NotifyAllObjectsGetMin(int iSignalNumber) {
 	int iReturn = INT_MAX;
 
 	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		int iVal = m_pObjectArray[i]->Notify(iSignalNumber);
-		if (iVal < iReturn) { iReturn = iVal; }
+		if (m_pObjectArray[i] != NULL) {
+			int iVal = m_pObjectArray[i]->Notify(iSignalNumber);
+			if (iVal < iReturn) { iReturn = iVal; }
+		}
 	}
 
 	return iReturn;

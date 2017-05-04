@@ -10,6 +10,8 @@ StateManager::StateManager(GameEngine* pEngine, GameState state)
 	: m_pEngine(pEngine) 
 {
 	m_aStates = new State*[3];
+	for (int i = 0; i < 3; m_aStates[i++] = nullptr);
+
 	initState(state);
 	setState(state);
 }
@@ -72,13 +74,32 @@ void StateManager::unloadState(GameState state) {
 	switch (state) {
 		case MENU:
 			delete m_aStates[0];
+			m_aStates[0] = nullptr;
 			break;
 		case PLAY:
 			delete m_aStates[1];
+			m_aStates[1] = nullptr;
 			break;
 		case PAUSE:
 			delete m_aStates[2];
+			m_aStates[2] = nullptr;
 			break;
 	}
 }
 
+bool StateManager::isLoaded(GameState state) {
+	switch (state) {
+		case MENU:
+			return (m_aStates[0] != nullptr);
+			break;
+		case PLAY:
+			return (m_aStates[1] != nullptr);
+			break;
+		case PAUSE:
+			return (m_aStates[2] != nullptr);
+			break;
+		default:
+			return false;
+			break;
+	}
+}

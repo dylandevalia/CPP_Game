@@ -1,5 +1,7 @@
 #include "MenuState.h"
 
+#include "PlasmaOrb.h"
+
 #include <iostream>
 
 using namespace std;
@@ -19,6 +21,7 @@ MenuState::~MenuState() {
 
 void MenuState::setup() {
 	cout << "State - MENU" << endl;
+	m_pGame->InitialiseObjects();
 }
 
 void MenuState::update() {
@@ -67,6 +70,14 @@ void MenuState::mouseUp(int iButton, int iX, int iY) {
 /* -------- */
 
 int MenuState::initialiseObjects() {
+	// Informs the engine that the drawable objects have changed
+	m_pGame->DrawableObjectsChanged();
+
+	// Destorys all existing objects
+	m_pGame->DestoryOldObjects();
+
+	m_pGame->Redraw(true);
+
 	return 0;
 }
 

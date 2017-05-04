@@ -19,7 +19,7 @@ void State::mouseUp(int, int, int) {}
 
 // Overides
 
-int State::initialiseObjects() { return -1; }
+int State::initialiseObjects() { return 0; }
 void State::setupBackgroundBuffer() {}
 void State::drawStrings() {}
 
