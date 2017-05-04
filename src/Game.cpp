@@ -70,14 +70,12 @@ int Game::MainLoop(void) {
 				}
 			}
 
-			m_GSM.update();
-
 			// Do any updates for movements
+			m_GSM.update();
 			GameAction();
 
-			m_GSM.draw();
-
 			// Render the screen
+			m_GSM.draw();
 			GameRender();
 		}
 		return 0;

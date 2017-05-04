@@ -1,17 +1,17 @@
 #include "PlasmaOrb.h"
 
-PlasmaOrb::PlasmaOrb(BaseEngine* pEngine)
+PlasmaOrb::PlasmaOrb(BaseEngine* pEngine, int xpos, int ypos, int speed)
 	: DisplayableObject(pEngine)
 {
-	m_iCurrentScreenX = m_iCurrentScreenY = 100;
-	m_iPreviousScreenX = m_iPreviousScreenY = 100;
+	m_iCurrentScreenX = m_iCurrentScreenY = xpos;
+	m_iPreviousScreenX = m_iPreviousScreenY = ypos;
 
 	m_iStartDrawPosX = m_iStartDrawPosY = 0;
 
-	m_iDrawWidth = 100;
+	m_iDrawWidth = 50;
 	m_iDrawHeight = 50;
 
-	m_iDirX = m_iDirY = 2;
+	m_iDirX = m_iDirY = speed;
 
 	SetVisible(true);
 }
@@ -37,8 +37,8 @@ void PlasmaOrb::Draw() {
 	StoreLastScreenPositionForUndraw();
 }
 
-void PlasmaOrb::update() {
-	//printf("Update");
+void PlasmaOrb::DoUpdate(int iCurrentTime) {
+	// printf("Update");
 	m_iCurrentScreenX += m_iDirX;
 	m_iCurrentScreenY += m_iDirY;
 

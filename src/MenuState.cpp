@@ -19,9 +19,15 @@ MenuState::~MenuState() {
 
 }
 
+void MenuState::init() {
+	m_pGame->InitialiseObjects();
+}
+
 void MenuState::setup() {
 	cout << "State - MENU" << endl;
-	m_pGame->InitialiseObjects();
+	m_pStateManager->unloadState(GameState::PLAY);
+	m_pStateManager->unloadState(GameState::PAUSE);
+	m_pGame->SetObjectVisibility(false);
 }
 
 void MenuState::update() {
@@ -29,8 +35,7 @@ void MenuState::update() {
 }
 
 void MenuState::draw() {
-	m_pGame->FillBackground(0xB2EBF2);
-	m_pGame->Redraw(true);
+	setupBackgroundBuffer();
 }
 
 /* ------ */
@@ -73,16 +78,18 @@ int MenuState::initialiseObjects() {
 	// Informs the engine that the drawable objects have changed
 	m_pGame->DrawableObjectsChanged();
 
+	// Undraws all the objects before destorying them
+	m_pGame->UndrawObjects();
+
 	// Destorys all existing objects
 	m_pGame->DestoryOldObjects();
-
-	m_pGame->Redraw(true);
 
 	return 0;
 }
 
 void MenuState::setupBackgroundBuffer() {
-
+	m_pGame->FillBackground(0xB2EBF2);
+	m_pGame->Redraw(true);
 }
 
 void MenuState::drawStrings() {

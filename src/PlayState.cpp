@@ -25,14 +25,17 @@ PlayState::~PlayState() {
 
 }
 
-/**  */
-void PlayState::setup() {
-	cout << "State - PLAY" << endl;
+void PlayState::init() {
 	initialiseObjects();
 }
 
+void PlayState::setup() {
+	cout << "State - PLAY" << endl;
+}
+
 void PlayState::update() {
-	m_pGame->UpdateAllObjects(m_pGame->GetModifiedTime());
+	// printf("?");
+	//m_pGame->UpdateAllObjects(m_pGame->GetModifiedTime());
 }
 
 void PlayState::draw() {
@@ -51,6 +54,7 @@ void PlayState::keyDown(int iKeyCode) {
 				m_pStateManager->initState(GameState::PAUSE);
 			}
 			m_pStateManager->setState(GameState::PAUSE);
+			m_pGame->ShouldObjectsUpdate(false);
 			break;
 		case SDLK_ESCAPE:
 			//m_pStateManager->initState(GameState::MENU);
@@ -89,8 +93,7 @@ int PlayState::initialiseObjects() {
 
 	// Creates new array and adds new object
 	m_pGame->CreateObjectArray(0);
-	m_pGame->StoreObjectInArrayAtEnd(new PlasmaOrb(m_pGame));
-	m_pGame->StoreObjectInArrayAtEnd(NULL);
+	m_pGame->StoreObjectInArrayAtEnd(new PlasmaOrb(m_pGame, 100, 100, 2));
 
 	return 0;
 }

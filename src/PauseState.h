@@ -20,6 +20,7 @@ public:
 	PauseState(GameEngine*, StateManager*);
 	~PauseState();
 
+	void init();
 	void setup();
 	void update();
 	void draw();

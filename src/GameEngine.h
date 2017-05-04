@@ -13,9 +13,12 @@ public:
 	~GameEngine() { DestroyOldObjects(); }
 
 public:
-	/* ------------ */
-	/* Object array */
-	/* ------------ */
+	/* Syncronises object updates */
+	void GameAction();
+	/* Sets if objects should update */
+	void ShouldObjectsUpdate(bool);
+
+	// Object Array
 
 	/* Creates a new blank array with specified size */
 	void CreateObjectArray(int);
@@ -42,8 +45,10 @@ public:
 	/* Send a specified notification value to all displayable objects and return the smallest of the returned values. */
 	int NotifyAllObjectsGetMin(int);
 
-	// Extra
+	// Object Array - Extra
 
+	/* Sets all objects' visibility */
+	void SetObjectVisibility(bool);
 	/* Resizes the object array (keeps data) */
 	void ResizeObjectArray(int);
 	/* Store object in array before given index */
@@ -56,10 +61,15 @@ public:
 	void RemoveObjectFromArray(int);
 	/* Removes multiple objects from array from given index */
 	void RemoveMultipleObjectsFromArray(int, int);
+	/* Returns the length of the object array */
+	int GetLengthOfObjectArray();
 	/* Get the index value of object from array */
 	int GetIndexOfObjectFromArray(DisplayableObject*);
+
 
 private:
 	/* Array container class used to store DisplayableObject pointers */
 	ObjectArray m_pObjectArray;
+	/* Boolean which determines if all objects should update */
+	bool m_bUpdateObjects = true;
 };

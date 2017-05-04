@@ -1,6 +1,31 @@
 #include "GameEngine.h"
 #include "DisplayableObject.h"
 
+/* Sub-class should actually do something, if relevant
+e.g. move the player or any other sprites */
+void GameEngine::GameAction()
+{
+	// If too early to act then do nothing
+	if (!IsTimeToActWithSleep())
+		return;
+
+	// Don't act for another 15 ticks
+	SetTimeToAct(15);
+
+	// Tell all objects to update themselves.
+	// If they need the screen to redraw then they should say so, so that GameRender() will
+	// call the relevant function later.
+	if (m_bUpdateObjects) { UpdateAllObjects(GetTime()); }
+}
+
+void GameEngine::ShouldObjectsUpdate(bool updateObjects) {
+	m_bUpdateObjects = updateObjects;
+}
+
+/* ------------ */
+/* Object array */
+/* ------------ */
+
 /* Creates a new blank array with specified size */
 void GameEngine::CreateObjectArray(int iNumberObjects) {
 	m_pObjectArray.reallocate(iNumberObjects);
@@ -20,7 +45,7 @@ void GameEngine::DestoryOldObjects() {
 void GameEngine::UpdateAllObjects(int iCurrentTime) {
 	m_iDrawableObjectsChanged = 0;
 
-	for (int i = 0; i < m_pObjectArray.getLength() - 1; i++) {
+	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
 		if (m_pObjectArray[i] != NULL) { m_pObjectArray[i]->DoUpdate(iCurrentTime); }
 
 		if (m_iDrawableObjectsChanged) { return; }
@@ -122,6 +147,17 @@ int GameEngine::NotifyAllObjectsGetMin(int iSignalNumber) {
 	return iReturn;
 }
 
+/* Sets all objects' visibility */
+void GameEngine::SetObjectVisibility(bool visible) {
+	m_iDrawableObjectsChanged = 0;
+
+	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
+		if (m_pObjectArray[i] != NULL) { m_pObjectArray[i]->SetVisible(visible); }
+
+		if (m_iDrawableObjectsChanged) { return; }
+	}
+}
+
 /* Resizes the object array (keeps data) */
 void GameEngine::ResizeObjectArray(int iNewSize) {
 	m_pObjectArray.resize(iNewSize);
@@ -150,6 +186,11 @@ void GameEngine::RemoveObjectFromArray(int iIndex) {
 /* Removes multiple objects from array from given index */
 void GameEngine::RemoveMultipleObjectsFromArray(int iIndex, int iNoElements) {
 	m_pObjectArray.remove(iIndex, iNoElements);
+}
+
+/* Returns the length of the object array */
+int GameEngine::GetLengthOfObjectArray() {
+	return m_pObjectArray.getLength();
 }
 
 /* Get the index value of object from array */

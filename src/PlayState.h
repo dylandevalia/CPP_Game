@@ -20,6 +20,7 @@ public:
 	PlayState(GameEngine*, StateManager*);
 	~PlayState();
 
+	void init();
 	void setup();
 	void update();
 	void draw();

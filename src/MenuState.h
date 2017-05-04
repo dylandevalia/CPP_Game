@@ -19,6 +19,7 @@ public:
 	MenuState(GameEngine*, StateManager*);
 	~MenuState();
 
+	void init();
 	void setup();
 	void update();
 	void draw();

@@ -31,6 +31,7 @@ public:
 	void unloadState(GameState);
 	bool isLoaded(GameState);
 
+	void init() { m_pCurrrentState->init(); }
 	void setup() { m_pCurrrentState->setup(); }
 	void draw() { m_pCurrrentState->draw(); }
 	void update() { m_pCurrrentState->update(); }

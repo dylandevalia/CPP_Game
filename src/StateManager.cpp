@@ -3,14 +3,16 @@
 #include "PlayState.h"
 #include "PauseState.h"
 
+#define NUM_OF_STATES 3
+
 /**
 Manages all the states
 */
 StateManager::StateManager(GameEngine* pEngine, GameState state)
 	: m_pEngine(pEngine) 
 {
-	m_aStates = new State*[3];
-	for (int i = 0; i < 3; m_aStates[i++] = nullptr);
+	m_aStates = new State*[NUM_OF_STATES];
+	for (int i = 0; i < NUM_OF_STATES; m_aStates[i++] = nullptr);
 
 	initState(state);
 	setState(state);
@@ -19,7 +21,7 @@ StateManager::StateManager(GameEngine* pEngine, GameState state)
 StateManager::~StateManager() {}
 
 /**
-Initialises the state and runs it's setup
+Initialises the state and runs its initialise function
 
 @param state The state to initialise
 */
@@ -27,11 +29,11 @@ void StateManager::initState(GameState state) {
 	switch (state) {
 		case GameState::MENU:
 			m_aStates[0] = new MenuState(m_pEngine, this);
-			m_aStates[0]->setup();
+			m_aStates[0]->init();
 			break;
 		case GameState::PLAY:
 			m_aStates[1] = new PlayState(m_pEngine, this);
-			m_aStates[1]->setup();
+			m_aStates[1]->init();
 			break;
 		/*
 		case GameState::StageOne:
@@ -41,13 +43,13 @@ void StateManager::initState(GameState state) {
 		*/
 		case GameState::PAUSE:
 			m_aStates[2] = new PauseState(m_pEngine, this);
-			m_aStates[2]->setup();
+			m_aStates[2]->init();
 			break;
 	}
 }
 
 /**
-Sets the current state
+Sets the current state and runs its setup function
 
 @param state The state to set to current state
 */
@@ -63,6 +65,7 @@ void StateManager::setState(GameState state) {
 			m_pCurrrentState = m_aStates[2];
 			break;
 	}
+	m_pCurrrentState->setup();
 }
 
 /** 
@@ -87,6 +90,13 @@ void StateManager::unloadState(GameState state) {
 	}
 }
 
+/**
+Checks if a state is loaded
+
+@param state The state to check if it's loaded
+
+@return Boolean if state is loaded
+*/
 bool StateManager::isLoaded(GameState state) {
 	switch (state) {
 		case MENU:

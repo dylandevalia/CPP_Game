@@ -17,6 +17,10 @@ PauseState::~PauseState() {
 
 }
 
+void PauseState::init() {
+
+}
+
 void PauseState::setup() {
 	cout << "State - PAUSE" << endl;
 	initialiseObjects();
@@ -39,6 +43,7 @@ void PauseState::draw() {
 void PauseState::keyDown(int iKeyCode) {
 	//m_pStateManager->initState(GameState::PLAY);
 	m_pStateManager->setState(GameState::PLAY);
+	m_pGame->ShouldObjectsUpdate(true);
 	m_pGame->Redraw(true);
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 class State {
 public:
+	virtual void init();
 	virtual void setup();
 	virtual void update();
 	virtual void draw();

@@ -5,6 +5,7 @@
 State interface
 */
 
+void State::init() {}
 void State::setup() {}
 void State::update() {}
 void State::draw() {}

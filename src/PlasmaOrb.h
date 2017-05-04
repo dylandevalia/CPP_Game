@@ -8,11 +8,11 @@ class PlasmaOrb :
 	public DisplayableObject
 {
 public:
-	PlasmaOrb(BaseEngine*);
+	PlasmaOrb(BaseEngine*, int, int, int);
 	~PlasmaOrb();
 
 	void Draw();
-	void update();
+	void DoUpdate(int);
 
 private:
 	int m_iDirX, m_iDirY;
