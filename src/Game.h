@@ -7,6 +7,7 @@
 
 #include "GameEngine.h"
 #include "StateManager.h"
+#include "GameTileManager.h"
 
 class Game
 	: public GameEngine {
@@ -14,7 +15,9 @@ class Game
 public:
 	Game* m_pGame;
 	StateManager m_GSM;
+	GameTileManager m_GTM;
 
+public:
 	Game();
 	~Game();
 

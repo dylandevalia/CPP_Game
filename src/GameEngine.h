@@ -17,6 +17,8 @@ public:
 	void GameAction();
 	/* Sets if objects should update */
 	void ShouldObjectsUpdate(bool);
+	/* Used to avoid creating arbitrary colours and instead have a set of useful values  */
+	unsigned int GetColour(int iColourIndex) const;
 
 	// Object Array
 

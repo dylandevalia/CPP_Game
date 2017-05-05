@@ -10,8 +10,9 @@ using namespace std;
 State - Main menu
 */
 
-MenuState::MenuState(GameEngine* pGame, StateManager* pStateManager)
-	: m_pGame(pGame), m_pStateManager(pStateManager) {
+MenuState::MenuState(GameEngine* pGame, StateManager* pStateManager, GameTileManager* pTile)
+	: m_pGame(pGame), m_pStateManager(pStateManager), m_pTile(pTile)
+{
 
 }
 
@@ -27,7 +28,12 @@ void MenuState::setup() {
 	cout << "State - MENU" << endl;
 	m_pStateManager->unloadState(GameState::PLAY);
 	m_pStateManager->unloadState(GameState::PAUSE);
-	m_pGame->SetObjectVisibility(false);
+	m_pGame->InitialiseObjects();
+	m_pGame->SetupBackgroundBuffer();
+	m_pGame->Redraw(true);
+
+	m_pTile->SetAllValues(0);
+	m_pTile->DrawAllTiles(m_pGame, m_pGame->GetBackground(), 0, 0, 14, 8);
 }
 
 void MenuState::update() {
@@ -35,7 +41,7 @@ void MenuState::update() {
 }
 
 void MenuState::draw() {
-	setupBackgroundBuffer();
+	//setupBackgroundBuffer();
 }
 
 /* ------ */
@@ -79,7 +85,7 @@ int MenuState::initialiseObjects() {
 	m_pGame->DrawableObjectsChanged();
 
 	// Undraws all the objects before destorying them
-	m_pGame->UndrawObjects();
+	//m_pGame->UndrawObjects();
 
 	// Destorys all existing objects
 	m_pGame->DestoryOldObjects();
@@ -88,8 +94,7 @@ int MenuState::initialiseObjects() {
 }
 
 void MenuState::setupBackgroundBuffer() {
-	m_pGame->FillBackground(0xB2EBF2);
-	m_pGame->Redraw(true);
+	m_pGame->FillBackground(m_pGame->GetColour(6));
 }
 
 void MenuState::drawStrings() {

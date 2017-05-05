@@ -18,9 +18,37 @@ void GameEngine::GameAction()
 	if (m_bUpdateObjects) { UpdateAllObjects(GetTime()); }
 }
 
+/* Sets if objects should update */
 void GameEngine::ShouldObjectsUpdate(bool updateObjects) {
 	m_bUpdateObjects = updateObjects;
 }
+
+/* Used to avoid creating arbitrary colours and instead have a set of useful values  */
+unsigned int GameEngine::GetColour(int iColourIndex) const {
+	switch (iColourIndex) {
+		case 0: return 0xf44336;  // Red
+		case 1: return 0xe91e63;  // Pink
+		case 2: return 0x9c27b0;  // Purple
+		case 3: return 0x673ab7;  // Deep purple
+		case 4: return 0x3f51b5;  // Indigo
+		case 5: return 0x2196f3;  // Blue
+		case 6: return 0x03a9f4;  // Light blue
+		case 7: return 0x00bcd4;  // Cyan
+		case 8:	return 0x009688;  // Teal
+		case 9: return 0x4caf50;  // Green
+		case 10: return 0x8bc34a; // Light green
+		case 11: return 0xcddc39; // Lime
+		case 12: return 0xffeb3b; // Yellow
+		case 13: return 0xffc107; // Amber
+		case 14: return 0xff9800; // Orange
+		case 15: return 0xff5722; // Deep orange
+		case 16: return 0x795548; // Brown
+		case 17: return 0x9e9e9e; // Grey
+		case 18: return 0x607d8b; // Blue Grey
+		default: return 0x000000; // Black
+	}
+}
+
 
 /* ------------ */
 /* Object array */

@@ -3,19 +3,16 @@
 #include "PlayState.h"
 #include "PauseState.h"
 
-#define NUM_OF_STATES 3
+#define NUM_OF_ACTIVE_STATES 3
 
 /**
 Manages all the states
 */
-StateManager::StateManager(GameEngine* pEngine, GameState state)
-	: m_pEngine(pEngine) 
+StateManager::StateManager(GameEngine* pEngine, GameTileManager* pTile)
+	: m_pEngine(pEngine), m_pTile(pTile)
 {
-	m_aStates = new State*[NUM_OF_STATES];
-	for (int i = 0; i < NUM_OF_STATES; m_aStates[i++] = nullptr);
-
-	initState(state);
-	setState(state);
+	m_aStates = new State*[NUM_OF_ACTIVE_STATES];
+	for (int i = 0; i < NUM_OF_ACTIVE_STATES; m_aStates[i++] = nullptr);
 }
 
 StateManager::~StateManager() {}
@@ -28,11 +25,11 @@ Initialises the state and runs its initialise function
 void StateManager::initState(GameState state) {
 	switch (state) {
 		case GameState::MENU:
-			m_aStates[0] = new MenuState(m_pEngine, this);
+			m_aStates[0] = new MenuState(m_pEngine, this, m_pTile);
 			m_aStates[0]->init();
 			break;
 		case GameState::PLAY:
-			m_aStates[1] = new PlayState(m_pEngine, this);
+			m_aStates[1] = new PlayState(m_pEngine, this, m_pTile);
 			m_aStates[1]->init();
 			break;
 		/*
@@ -42,7 +39,7 @@ void StateManager::initState(GameState state) {
 		.   m_aStates[1] = new StateTwoState(..);
 		*/
 		case GameState::PAUSE:
-			m_aStates[2] = new PauseState(m_pEngine, this);
+			m_aStates[2] = new PauseState(m_pEngine, this, m_pTile);
 			m_aStates[2]->init();
 			break;
 	}

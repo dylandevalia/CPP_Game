@@ -141,6 +141,9 @@
     <ClInclude Include="DisplayableObject.h">
       <Filter>Header Files\Engine\Base</Filter>
     </ClInclude>
+    <ClInclude Include="GameTileManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp">
@@ -226,6 +229,9 @@
     </ClCompile>
     <ClCompile Include="TileManager.cpp">
       <Filter>Source Files\Engine\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTileManager.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

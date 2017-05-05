@@ -4,6 +4,7 @@
 #include "templates.h"
 
 #include "GameEngine.h"
+#include "GameTileManager.h"
 
 #include "Enums.h"
 
@@ -15,8 +16,9 @@ class MenuState
 public:
 	GameEngine* m_pGame;
 	StateManager* m_pStateManager;
+	GameTileManager* m_pTile;
 
-	MenuState(GameEngine*, StateManager*);
+	MenuState(GameEngine*, StateManager*, GameTileManager*);
 	~MenuState();
 
 	void init();

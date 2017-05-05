@@ -90,6 +90,7 @@
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GameTileManager.h" />
     <ClInclude Include="ObjectArray.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlasmaOrb.h" />
@@ -124,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GameTileManager.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="PlasmaOrb.cpp" />
     <ClCompile Include="PlayState.cpp" />

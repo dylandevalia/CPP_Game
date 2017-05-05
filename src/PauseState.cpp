@@ -8,8 +8,9 @@ using namespace std;
 State - Main menu
 */
 
-PauseState::PauseState(GameEngine* pGame, StateManager* pStateManager)
-	: m_pGame(pGame), m_pStateManager(pStateManager) {
+PauseState::PauseState(GameEngine* pGame, StateManager* pStateManager, GameTileManager* pTile)
+	: m_pGame(pGame), m_pStateManager(pStateManager), m_pTile(pTile)
+{
 
 }
 
@@ -23,7 +24,10 @@ void PauseState::init() {
 
 void PauseState::setup() {
 	cout << "State - PAUSE" << endl;
-	initialiseObjects();
+	m_pGame->SetupBackgroundBuffer();
+	m_pGame->SetObjectVisibility(false);
+	m_pGame->DrawObjects();
+	m_pGame->Redraw(true);
 }
 
 void PauseState::update() {
@@ -44,7 +48,6 @@ void PauseState::keyDown(int iKeyCode) {
 	//m_pStateManager->initState(GameState::PLAY);
 	m_pStateManager->setState(GameState::PLAY);
 	m_pGame->ShouldObjectsUpdate(true);
-	m_pGame->Redraw(true);
 }
 
 void PauseState::keyUp(int iKeyCode) {
@@ -72,9 +75,9 @@ int PauseState::initialiseObjects() {
 }
 
 void PauseState::setupBackgroundBuffer() {
-	m_pGame->FillBackground(0xFFCDD2);
+	m_pGame->FillBackground(m_pGame->GetColour(0));
 }
 
 void PauseState::drawStrings() {
-
+	m_pGame->DrawScreenString(400, 400, "Paused", 0x000000, NULL);
 }

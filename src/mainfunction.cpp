@@ -6,8 +6,8 @@
 
 #include <ctime>
 
-#define BASE_SCREEN_WIDTH 800
-#define BASE_SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 750
+#define SCREEN_HEIGHT 450
 
 int main(int argc, char *argv[]) {
 	int iResult;
@@ -19,10 +19,14 @@ int main(int argc, char *argv[]) {
 	//Demo4Main oMain;
 
 	char buf[1024];
-	sprintf(buf, "My Demonstration Program : Size %d x %d", BASE_SCREEN_WIDTH, BASE_SCREEN_HEIGHT);
-	//iResult = oMain.Initialise(buf, BASE_SCREEN_WIDTH, BASE_SCREEN_HEIGHT, "Cornerstone Regular.ttf", 24);
-	//iResult = oMain.MainLoop();
-	//oMain.Deinitialise();
+
+	iResult = g.Initialise(NULL, SCREEN_WIDTH, SCREEN_HEIGHT, "VT323-Regular.ttf", 24);
+
+	g.m_GSM.initState(GameState::MENU);
+	g.m_GSM.setState(GameState::MENU);
+
+	iResult = g.MainLoop();
+	g.Deinitialise();
 
 	return iResult;
 }

@@ -563,7 +563,7 @@ void BaseEngine::DrawStrings()
 	// First clear the area where they were originally drawn - i.e. undraw previous text
 	// e.g. CopyBackgroundBuffer()
 	// Then draw the new labels/strings
-	//e.g. m_pFont->DrawString(m_pActualScreen, 100, 180, "The DrawScreen method needs to be overridden", 0xff00ff);
+	// m_pFont->DrawString(m_pActualScreen, 100, 180, "The DrawScreen method needs to be overridden", 0xff00ff);
 }
 
 

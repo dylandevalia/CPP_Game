@@ -3,6 +3,7 @@
 #include "templates.h"
 
 #include "GameEngine.h"
+#include "GameTileManager.h"
 
 #include "State.h"
 #include "Enums.h"
@@ -19,11 +20,13 @@ private:
 	/* Current state */
 	State* m_pCurrrentState = new State();
 
-	/* Reference to engine */
+	/* Pointer to engine */
 	GameEngine* m_pEngine;
+	/* Pointer to tile manager */
+	GameTileManager* m_pTile;
 
 public:
-	StateManager(GameEngine*, GameState);
+	StateManager(GameEngine*, GameTileManager*);
 	~StateManager();
 
 	void initState(GameState);

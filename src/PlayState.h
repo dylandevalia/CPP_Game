@@ -4,6 +4,7 @@
 #include "templates.h"
 
 #include "GameEngine.h"
+#include "GameTileManager.h"
 
 #include "Enums.h"
 
@@ -15,9 +16,10 @@ class PlayState
 private:
 	GameEngine* m_pGame;
 	StateManager* m_pStateManager;
+	GameTileManager* m_pTile;
 
 public:
-	PlayState(GameEngine*, StateManager*);
+	PlayState(GameEngine*, StateManager*, GameTileManager*);
 	~PlayState();
 
 	void init();

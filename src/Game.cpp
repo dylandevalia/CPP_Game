@@ -1,21 +1,16 @@
 #include "Game.h"
 
-#define SCREEN_WIDTH 600
-#define SCREEN_HEIGHT 600
-
 /**
 Object which extends base engine
 handles draw and main loop
 */
 Game::Game()
-	: GameEngine(0),             // Maximum number of moving objects
-	m_GSM(this, GameState::MENU) // Start in menu state
+	: GameEngine(0), // Maximum number of moving objects
+	m_GTM(50, 50),
+	m_GSM(this, &m_GTM)
 {
-	Initialise(NULL, SCREEN_WIDTH, SCREEN_HEIGHT, "VT323-Regular.ttf", 24);
-
-	MainLoop();
-
-	Deinitialise();
+	m_GTM.SetSize(15, 9);
+	m_GTM.SetBaseTilesPositionOnScreen(0, 0);
 }
 
 Game::~Game() {

@@ -16,8 +16,9 @@ Constructor
 @param pGame         Pointer to the current engine
 @param pStateManager Pointer to the state manager
 */
-PlayState::PlayState(GameEngine* pGame, StateManager* pStateManager)
-	: m_pGame(pGame), m_pStateManager(pStateManager) {
+PlayState::PlayState(GameEngine* pGame, StateManager* pStateManager, GameTileManager* pTile)
+	: m_pGame(pGame), m_pStateManager(pStateManager), m_pTile(pTile)
+{
 
 }
 
@@ -31,6 +32,8 @@ void PlayState::init() {
 
 void PlayState::setup() {
 	cout << "State - PLAY" << endl;
+	m_pGame->SetupBackgroundBuffer();
+	m_pGame->Redraw(true);
 }
 
 void PlayState::update() {
@@ -39,8 +42,7 @@ void PlayState::update() {
 }
 
 void PlayState::draw() {
-	m_pGame->FillBackground(0xDCEDC8);
-	m_pGame->Redraw(true);
+
 }
 
 /* ------ */
@@ -84,7 +86,6 @@ void PlayState::mouseUp(int iButton, int iX, int iY) {
 /* -------- */
 
 int PlayState::initialiseObjects() {
-	cout << "Hi" << endl;
 	// Informs the engine that the drawable objects have changed
 	m_pGame->DrawableObjectsChanged();
 
@@ -99,7 +100,7 @@ int PlayState::initialiseObjects() {
 }
 
 void PlayState::setupBackgroundBuffer() {
-
+	m_pGame->FillBackground(m_pGame->GetColour(10));
 }
 
 void PlayState::drawStrings() {
