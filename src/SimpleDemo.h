@@ -1,14 +1,14 @@
 #ifndef MYPROJECTMAIN_H
 #define MYPROJECTMAIN_H
 
-#include "BaseEngine.h"
+#include "GameEngine.h"
 
 /* This is a relatively simple demo but it illustrates a few things:
 1) You can put source code anywhere - check out the contents of the .cpp file!
 2) It illustrates the more complex way to draw static text, so that some appears on top of and some underneath the moving objects.
 3) The object itself looks for key presses and alters its speed according to the pressing of the arrow keys or space
 */
-class SimpleDemo : public BaseEngine
+class SimpleDemo : public GameEngine
 {
 public:
 
@@ -16,7 +16,7 @@ public:
 	Constructor
 	*/
 	SimpleDemo()
-	: BaseEngine( 6 )
+	: GameEngine( 6 )
 	{}
 
 	// Do any setup of back buffer prior to locking the screen buffer

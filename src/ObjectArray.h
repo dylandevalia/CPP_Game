@@ -26,8 +26,6 @@ public:
 	~ObjectArray() {
 		delete[] m_pData;
 	}
-	
-
 
 	/**
 	Erases the array and sets the length to 0
@@ -58,8 +56,6 @@ public:
 	@return The current length of the array
 	*/
 	int getLength() { return m_nLength; }
-
-
 
 	/**
 	Reallocates the array

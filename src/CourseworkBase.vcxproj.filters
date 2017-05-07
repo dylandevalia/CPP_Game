@@ -157,7 +157,10 @@
       <Filter>Header Files\Objects\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\Objects\Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -251,8 +254,11 @@
     <ClCompile Include="PlasmaOrb.cpp">
       <Filter>Source Files\Objects\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

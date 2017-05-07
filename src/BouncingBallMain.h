@@ -1,7 +1,7 @@
 #ifndef BouncingBallMain_H
 #define BouncingBallMain_H
 
-#include "BaseEngine.h"
+#include "GameEngine.h"
 
 // Forward declarations of classes
 // Says that these are classes, but not what the classes look like
@@ -19,7 +19,7 @@ class BouncingBall2;
 // Says that it subclasses a class called BaseEngine
 // so we inherit a lot of functionality for this class
 class BouncingBallMain :
-	public BaseEngine
+	public GameEngine
 {
 protected:
 	// Three member variables, to store pointers to the three balls
@@ -39,7 +39,7 @@ public:
 	The : here refers to an initialisation list
 	*/
 	BouncingBallMain()
-	: BaseEngine( 6 ) // Pass 6 to superclass constructor
+	: GameEngine( 6 ) // Pass 6 to superclass constructor
 	, m_pBall1(NULL)  // Initialise pointers to NULL
 	, m_pBall2(NULL)
 	, m_pBall3(NULL)

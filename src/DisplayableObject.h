@@ -1,13 +1,13 @@
 #ifndef DISPLAYABLEOBJECT_H
 #define DISPLAYABLEOBJECT_H
 
-#include "BaseEngine.h"
+#include "GameEngine.h"
 
 class DisplayableObject
 {
 public:
 	// Constructor
-	DisplayableObject(BaseEngine* pEngine);
+	DisplayableObject(GameEngine* pEngine);
 
 	// Destructor
 	virtual ~DisplayableObject(void);
@@ -29,7 +29,7 @@ public:
 	void StoreLastScreenPositionForUndraw();
 
 	// Get pointer to game object
-	inline BaseEngine* GetEngine() const { return m_pEngine; }
+	inline GameEngine* GetEngine() const { return m_pEngine; }
 
 	/** Redraw the moving objects on the screen */
 	void RedrawObjects() { m_pEngine->Redraw(false); }
@@ -63,6 +63,8 @@ public:
 			m_iCurrentScreenY = m_pEngine->GetScreenHeight() - m_iStartDrawPosY - m_iDrawHeight;
 	}
 
+	int GetWidth() const { return m_iDrawWidth; }
+	int GetHeight() const { return m_iDrawHeight; }
 
 private:
 	// The rectangle on screen which must be updated.
@@ -75,7 +77,7 @@ private:
 	// Note that this breaks encapsulation
 protected:
 	// Pointer to the game object
-	BaseEngine* m_pEngine;
+	GameEngine* m_pEngine;
 
 	// We expect the sub-class to specify where to draw the object, and where it came from
 	// Current position of object on the screen

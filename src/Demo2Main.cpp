@@ -12,7 +12,7 @@
 
 
 Demo2Main::Demo2Main(void)
-: BaseEngine( 50 )
+: GameEngine( 50 )
 {
 }
 

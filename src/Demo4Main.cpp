@@ -12,7 +12,7 @@
 
 
 Demo4Main::Demo4Main(void)
-: BaseEngine( 50 )
+: GameEngine( 50 )
 , m_state(stateInit) // NEW
 {
 }

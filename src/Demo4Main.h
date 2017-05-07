@@ -1,11 +1,11 @@
 #pragma once
 
-#include "BaseEngine.h"
+#include "GameEngine.h"
 #include "TileManager.h"
 #include "Demo4TileManager.h"
 
 class Demo4Main :
-	public BaseEngine
+	public GameEngine
 {
 public:
 	Demo4Main(void);

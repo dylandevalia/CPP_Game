@@ -13,7 +13,7 @@
 
 
 Demo3Main::Demo3Main(void)
-: BaseEngine( 50 )
+: GameEngine( 50 )
 {
 }
 

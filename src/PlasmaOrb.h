@@ -5,11 +5,13 @@ class PlasmaOrb :
 	public Entity
 {
 public:
-	PlasmaOrb(BaseEngine*, int, int, int);
+	PlasmaOrb(GameEngine*, int, int, int);
 	~PlasmaOrb();
 
 	void Draw();
 	void DoUpdate(int);
+
+	void constrainInBounds();
 
 private:
 	int m_iDirX, m_iDirY;

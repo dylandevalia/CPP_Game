@@ -3,7 +3,7 @@
 class Player :
 	public Entity {
 public:
-	Player(BaseEngine*, int, int);
+	Player(GameEngine*, int, int);
 	~Player();
 
 	void Draw();
@@ -11,5 +11,6 @@ public:
 
 private:
 	int m_iSpeed;
+	int m_iShotDelay;
 };
 

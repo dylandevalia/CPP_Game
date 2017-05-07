@@ -7,7 +7,7 @@
 
 
 // Constructor
-DisplayableObject::DisplayableObject(BaseEngine* pEngine) :
+DisplayableObject::DisplayableObject(GameEngine* pEngine) :
 	// Current position of object on the screen
 	m_iCurrentScreenX(-1),
 	m_iCurrentScreenY(-1),
