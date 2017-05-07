@@ -1,19 +1,13 @@
 #include "PlasmaOrb.h"
+#include "Utility.h"
 
 PlasmaOrb::PlasmaOrb(BaseEngine* pEngine, int xpos, int ypos, int speed)
-	: DisplayableObject(pEngine)
+	: Entity(pEngine, xpos, ypos, 150, 150, 5)
 {
-	m_iCurrentScreenX = m_iCurrentScreenY = xpos;
-	m_iPreviousScreenX = m_iPreviousScreenY = ypos;
+	m_iDirX = speed * Utility::map(rand() % 2, 0, 1, -1, 1);
+	m_iDirY = speed * Utility::map(rand() % 2, 0, 1, -1, 1);
 
-	m_iStartDrawPosX = m_iStartDrawPosY = 0;
-
-	m_iDrawWidth = 50;
-	m_iDrawHeight = 50;
-
-	m_iDirX = m_iDirY = speed;
-
-	SetVisible(true);
+	//SetVisible(true);
 }
 
 
@@ -22,7 +16,6 @@ PlasmaOrb::~PlasmaOrb()
 }
 
 void PlasmaOrb::Draw() {
-	//printf("Draw\n");
 	GetEngine()->DrawScreenOval(
 		// Top Left
 		m_iCurrentScreenX,
@@ -42,10 +35,10 @@ void PlasmaOrb::DoUpdate(int iCurrentTime) {
 	m_iCurrentScreenX += m_iDirX;
 	m_iCurrentScreenY += m_iDirY;
 
-	if (m_iCurrentScreenX <= 0 || m_iCurrentScreenX >= GetEngine()->GetScreenWidth() - m_iDrawWidth) {
+	if (m_iCurrentScreenX <= 50 || m_iCurrentScreenX >= GetEngine()->GetScreenWidth() - m_iDrawWidth - 50) {
 		m_iDirX *= -1;
 	}
-	if (m_iCurrentScreenY <= 0 || m_iCurrentScreenY >= GetEngine()->GetScreenHeight() - m_iDrawHeight) {
+	if (m_iCurrentScreenY <= 50 || m_iCurrentScreenY >= GetEngine()->GetScreenHeight() - m_iDrawHeight - 50) {
 		m_iDirY *= -1;
 	}
 

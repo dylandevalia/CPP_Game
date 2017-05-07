@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Engine\Base">
       <UniqueIdentifier>{e5e270b2-a7a4-4032-a604-aed5db9e1bbd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\Entities">
+      <UniqueIdentifier>{33ced95a-2498-4c3d-954a-088860999497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Entities">
+      <UniqueIdentifier>{7ada780f-9110-4f5c-8d99-1b0ec796adf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -108,9 +114,6 @@
     <ClInclude Include="PauseState.h">
       <Filter>Header Files\States</Filter>
     </ClInclude>
-    <ClInclude Include="PlasmaOrb.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="GameEngine.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
@@ -143,6 +146,18 @@
     </ClInclude>
     <ClInclude Include="GameTileManager.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="PlasmaOrb.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -209,9 +224,6 @@
     <ClCompile Include="PauseState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
-    <ClCompile Include="PlasmaOrb.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="GameEngine.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -232,6 +244,15 @@
     </ClCompile>
     <ClCompile Include="GameTileManager.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="PlasmaOrb.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

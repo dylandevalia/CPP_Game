@@ -23,10 +23,12 @@ void PauseState::init() {
 }
 
 void PauseState::setup() {
-	cout << "State - PAUSE" << endl;
-	m_pGame->SetupBackgroundBuffer();
+	printf("State - PAUSE\n");
+
+	m_pGame->ShouldObjectsUpdate(false);
 	m_pGame->SetObjectVisibility(false);
 	m_pGame->DrawObjects();
+	m_pGame->SetupBackgroundBuffer();
 	m_pGame->Redraw(true);
 }
 
@@ -35,8 +37,8 @@ void PauseState::update() {
 }
 
 void PauseState::draw() {
-	m_pGame->SetupBackgroundBuffer();
-	m_pGame->Redraw(true);
+	
+	//m_pGame->Redraw(true);
 }
 
 
@@ -47,7 +49,6 @@ void PauseState::draw() {
 void PauseState::keyDown(int iKeyCode) {
 	//m_pStateManager->initState(GameState::PLAY);
 	m_pStateManager->setState(GameState::PLAY);
-	m_pGame->ShouldObjectsUpdate(true);
 }
 
 void PauseState::keyUp(int iKeyCode) {
@@ -59,7 +60,7 @@ void PauseState::mouseMoved(int iX, int iY) {
 }
 
 void PauseState::mouseDown(int iButton, int iX, int iY) {
-
+	m_pGame->Redraw(true);
 }
 
 void PauseState::mouseUp(int iButton, int iX, int iY) {
@@ -75,9 +76,15 @@ int PauseState::initialiseObjects() {
 }
 
 void PauseState::setupBackgroundBuffer() {
-	m_pGame->FillBackground(m_pGame->GetColour(0));
+	m_pGame->FillBackground(0xEF9A9A);
 }
 
 void PauseState::drawStrings() {
-	m_pGame->DrawScreenString(400, 400, "Paused", 0x000000, NULL);
+	m_pGame->DrawScreenString(
+		rand() % (m_pGame->GetScreenWidth() - 100) + 50,
+		rand() % (m_pGame->GetScreenHeight() - 100) + 50,
+		"Paused",
+		0x000000,
+		NULL
+	);
 }

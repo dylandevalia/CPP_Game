@@ -1,9 +1,44 @@
-﻿Build started 05/05/2017 17:40:02.
-     1>Project "Z:\G52CPP\CPP_Game\src\CourseworkBase.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         CourseworkBase.vcxproj -> Z:\G52CPP\CPP_Game\/Debug\CourseworkBase.exe
-     1>Done Building Project "Z:\G52CPP\CPP_Game\src\CourseworkBase.vcxproj" (Build target(s)).
+﻿Build started 07/05/2017 12:57:17 AM.
+     1>Project "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\src\CourseworkBase.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 2013\VC\bin\CL.exe /c /I..\SDL\include /ZI /nologo /W1 /WX- /Od /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\\" /Fd"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\vc120.pdb" /FR"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\\" /Gd /TP /analyze- /errorReport:prompt PlayState.cpp
+         PlayState.cpp
+     1>d:\google drive\uni\year 2\cpp\cpp_game\src\entity.h(13): warning C4552: '-' : operator has no effect; expected operator with side-effect
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.exe" /NOLOGO /LIBPATH:..\SDL\libx86 SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.pdb" /MAP:"map" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE:NO /IMPLIB:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.lib" /MACHINE:X86 /SAFESEH "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Entity.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Game.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\GameEngine.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\GameTileManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PauseState.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PlasmaOrb.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Player.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PlayState.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\StateManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\mainfunction.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BaseEngine.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\DisplayableObject.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\FontManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\JPGImage.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\MenuState.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\SimpleDemo.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\State.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\TileManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BouncingBall.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BouncingBallMain.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo1Main.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2Main.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2Object.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2TileManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3Main.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3Object.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3ObjectFinished.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3TileManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4Main.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4Object.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4TileManager.obj"
+         CourseworkBase.vcxproj -> D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.exe
+     1>Done Building Project "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\src\CourseworkBase.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.66
+Time Elapsed 00:00:00.76

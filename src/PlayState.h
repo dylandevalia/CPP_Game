@@ -41,6 +41,10 @@ public:
 	void setupBackgroundBuffer();
 	void drawStrings();
 
+public:
+	// Levels
+	void loadLevel();
+
 private:
 
 };

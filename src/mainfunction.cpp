@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 
 	char buf[1024];
 
-	iResult = g.Initialise(NULL, SCREEN_WIDTH, SCREEN_HEIGHT, "VT323-Regular.ttf", 24);
+	iResult = g.Initialise(NULL, SCREEN_WIDTH, SCREEN_HEIGHT, "VT323-Regular.ttf", 42);
 
 	g.m_GSM.initState(GameState::MENU);
 	g.m_GSM.setState(GameState::MENU);

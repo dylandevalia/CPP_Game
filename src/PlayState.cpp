@@ -1,5 +1,6 @@
 #include "PlayState.h"
 
+#include "Player.h"
 #include "PlasmaOrb.h"
 
 #include <iostream>
@@ -27,11 +28,15 @@ PlayState::~PlayState() {
 }
 
 void PlayState::init() {
+	loadLevel();
 	initialiseObjects();
 }
 
 void PlayState::setup() {
-	cout << "State - PLAY" << endl;
+	printf("State - PLAY\n");
+
+	m_pGame->ShouldObjectsUpdate(true);
+	m_pGame->SetObjectVisibility(true);
 	m_pGame->SetupBackgroundBuffer();
 	m_pGame->Redraw(true);
 }
@@ -56,7 +61,6 @@ void PlayState::keyDown(int iKeyCode) {
 				m_pStateManager->initState(GameState::PAUSE);
 			}
 			m_pStateManager->setState(GameState::PAUSE);
-			m_pGame->ShouldObjectsUpdate(false);
 			break;
 		case SDLK_ESCAPE:
 			//m_pStateManager->initState(GameState::MENU);
@@ -94,13 +98,16 @@ int PlayState::initialiseObjects() {
 
 	// Creates new array and adds new object
 	m_pGame->CreateObjectArray(0);
-	m_pGame->StoreObjectInArrayAtEnd(new PlasmaOrb(m_pGame, 100, 100, 2));
+	m_pGame->StoreObjectInArrayAtEnd(new PlasmaOrb(m_pGame, 10, 4, 1));
+	m_pGame->StoreObjectInArrayAtEnd(new Player(m_pGame, 1, 1));
+	printf("%d\n", m_pGame->GetLengthOfObjectArray());
 
 	return 0;
 }
 
 void PlayState::setupBackgroundBuffer() {
-	m_pGame->FillBackground(m_pGame->GetColour(10));
+	m_pGame->FillBackground(0xC5E1A5);
+	m_pTile->DrawAllTiles(m_pGame, m_pGame->GetBackground(), 0, 0, 14, 8);
 }
 
 void PlayState::drawStrings() {
@@ -108,3 +115,23 @@ void PlayState::drawStrings() {
 }
 
 
+
+void PlayState::loadLevel() {
+	char* level[] = {
+		"bbbbbbbbbbbbbbb",
+		"bcdcdcdcdcdcdcb",
+		"bdcdcdcdcdcdcdb",
+		"bcdcdcdcdcdcdcb",
+		"bdcdcdcdcdcdcdb",
+		"bcdcdcdcdcdcdcb",
+		"bdcdcdcdcdcdcdb",
+		"bcdcdcdcdcdcdcb",
+		"bbbbbbbbbbbbbbb",
+	};
+
+	for (int y = 0; y < 9; y++) {
+		for (int x = 0; x < 15; x++) {
+			m_pTile->SetValue(x, y, level[y][x] - 'a');
+		}
+	}
+}

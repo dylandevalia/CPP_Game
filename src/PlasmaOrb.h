@@ -1,11 +1,8 @@
 #pragma once
-#include "header.h"
-#include "templates.h"
-
-#include "DisplayableObject.h"
+#include "Entity.h"
 
 class PlasmaOrb :
-	public DisplayableObject
+	public Entity
 {
 public:
 	PlasmaOrb(BaseEngine*, int, int, int);

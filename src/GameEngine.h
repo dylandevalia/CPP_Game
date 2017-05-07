@@ -8,6 +8,13 @@
 
 class GameEngine :
 	public BaseEngine {
+
+private:
+	/* Array container class used to store DisplayableObject pointers */
+	ObjectArray m_pObjectArray;
+	/* Boolean which determines if all objects should update */
+	bool m_bUpdateObjects = true;
+
 public:
 	GameEngine(int iUnused = 0) : BaseEngine(iUnused), m_pObjectArray() {}
 	~GameEngine() { DestroyOldObjects(); }
@@ -67,11 +74,4 @@ public:
 	int GetLengthOfObjectArray();
 	/* Get the index value of object from array */
 	int GetIndexOfObjectFromArray(DisplayableObject*);
-
-
-private:
-	/* Array container class used to store DisplayableObject pointers */
-	ObjectArray m_pObjectArray;
-	/* Boolean which determines if all objects should update */
-	bool m_bUpdateObjects = true;
 };

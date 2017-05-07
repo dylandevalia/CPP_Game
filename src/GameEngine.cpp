@@ -98,7 +98,8 @@ void GameEngine::DrawObjects() {
 	m_iDrawableObjectsChanged = 0;
 
 	for (int i = 0; i < m_pObjectArray.getLength(); i++) {
-		if (m_pObjectArray[i] != NULL) { m_pObjectArray[i]->Draw(); }
+		DisplayableObject* tmp = m_pObjectArray[i];
+		if (tmp != NULL && tmp->IsVisible() == true) { tmp->Draw(); }
 
 		if (m_iDrawableObjectsChanged) { return; }
 	}
