@@ -89,10 +89,23 @@ void Bullet::checkCollision() {
 			printf("%d, %f\n", xdiff*xdiff + ydiff*ydiff, wdiff*wdiff + hdiff*hdiff);
 			*/
 
+			/*
 			if (
 				abs(GetXCentre() - entity->GetXCentre()) < (GetWidth() / 2.0) + (entity->GetWidth() / 2.0) &&
 				abs(GetYCentre() - entity->GetYCentre()) < (GetHeight() / 2.0) + (entity->GetHeight() / 2.0)
 			) {
+				//printf("hit\n");
+				entity->dealDamage(1);
+				deleteSelf();
+				RedrawObjects();
+			}
+			*/
+
+			// (a.x - b.x)^2 + (a.y - b.y)^2 <= (a.r + b.r)^2
+			int xdiff = GetXCentre() - entity->GetXCentre();
+			int ydiff = GetYCentre() - entity->GetYCentre();
+			double r = (GetWidth() / 2.0) + (entity->GetWidth() / 2.0);
+			if (xdiff*xdiff + ydiff*ydiff <= r*r) {
 				//printf("hit\n");
 				entity->dealDamage(1);
 				deleteSelf();

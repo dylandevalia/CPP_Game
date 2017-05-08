@@ -1,6 +1,6 @@
  CourseworkBase
 
- Timestamp is 590fcb1b (Mon May 08 02:34:19 2017)
+ Timestamp is 591056ec (Mon May 08 12:30:52 2017)
 
  Preferred load address is 00400000
 
@@ -44,11 +44,11 @@
 
  0000:00000000       ___guard_flags             00000000     <absolute>
  0000:00000000       __except_list              00000000     <absolute>
- 0000:00000000       ___guard_fids_table        00000000     <absolute>
  0000:00000000       ___guard_fids_count        00000000     <absolute>
+ 0000:00000000       ___guard_fids_table        00000000     <absolute>
  0000:00000021       ___safe_se_handler_count   00000021     <absolute>
- 0000:00009876       __fltused                  00009876     <absolute>
  0000:00009876       __ldused                   00009876     <absolute>
+ 0000:00009876       __fltused                  00009876     <absolute>
  0000:00000000       ___ImageBase               00400000     <linker-defined>
  0001:00001420       _main                      00402420 f   SDL2main:SDL_windows_main.obj
  0001:00001450       _WinMain@16                00402450 f   SDL2main:SDL_windows_main.obj
@@ -57,22 +57,20 @@
  0001:00003670       ??_GBullet@@UAEPAXI@Z      00404670 f i Bullet.obj
  0001:00003670       ??_EBullet@@UAEPAXI@Z      00404670 f i Bullet.obj
  0001:000036c0       ?DoUpdate@Bullet@@UAEXH@Z  004046c0 f   Bullet.obj
+ 0001:00003770       ?GetXCentre@DisplayableObject@@QBEHXZ 00404770 f i Bullet.obj
  0001:000037a0       ?Draw@Bullet@@UAEXXZ       004047a0 f   Bullet.obj
  0001:00003820       ?DrawScreenOval@BaseEngine@@QAEXHHHHI@Z 00404820 f i Bullet.obj
  0001:00003870       ?GetEngine@DisplayableObject@@QBEPAVGameEngine@@XZ 00404870 f i Bullet.obj
- 0001:00003890       ?GetHeight@DisplayableObject@@QBEHXZ 00404890 f i Bullet.obj
- 0001:000038b0       ?GetWidth@DisplayableObject@@QBEHXZ 004048b0 f i Bullet.obj
- 0001:000038d0       ?GetXCentre@DisplayableObject@@QBEHXZ 004048d0 f i Bullet.obj
- 0001:00003910       ?GetYCentre@DisplayableObject@@QBEHXZ 00404910 f i Bullet.obj
- 0001:00003950       ?Notify@DisplayableObject@@UAEJH@Z 00404950 f i Bullet.obj
- 0001:00003970       ?Redraw@BaseEngine@@QAEX_N@Z 00404970 f i Bullet.obj
- 0001:000039b0       ?RedrawObjects@DisplayableObject@@QAEXXZ 004049b0 f i Bullet.obj
- 0001:000039e0       ?checkCollision@Bullet@@QAEXXZ 004049e0 f   Bullet.obj
- 0001:00003c20       ?dealDamage@Entity@@QAEXN@Z 00404c20 f i Bullet.obj
+ 0001:00003890       ?GetWidth@DisplayableObject@@QBEHXZ 00404890 f i Bullet.obj
+ 0001:000038d0       ?GetYCentre@DisplayableObject@@QBEHXZ 004048d0 f i Bullet.obj
+ 0001:00003910       ?Notify@DisplayableObject@@UAEJH@Z 00404910 f i Bullet.obj
+ 0001:00003930       ?Redraw@BaseEngine@@QAEX_N@Z 00404930 f i Bullet.obj
+ 0001:00003970       ?RedrawObjects@DisplayableObject@@QAEXXZ 00404970 f i Bullet.obj
+ 0001:000039e0       ?dealDamage@Entity@@QAEXN@Z 004049e0 f i Bullet.obj
  0001:00003c70       ??0Entity@@QAE@PAVGameEngine@@_NHHHHH@Z 00404c70 f   Entity.obj
  0001:00003db0       ??1Entity@@UAE@XZ          00404db0 f   Entity.obj
- 0001:00003de0       ??_EEntity@@UAEPAXI@Z      00404de0 f i Entity.obj
  0001:00003de0       ??_GEntity@@UAEPAXI@Z      00404de0 f i Entity.obj
+ 0001:00003de0       ??_EEntity@@UAEPAXI@Z      00404de0 f i Entity.obj
  0001:00003e30       ?GetScreenHeight@BaseEngine@@QBEHXZ 00404e30 f i Entity.obj
  0001:00003e50       ?GetScreenWidth@BaseEngine@@QBEHXZ 00404e50 f i Entity.obj
  0001:00003e70       ?checkBounds@Entity@@QAE_NXZ 00404e70 f   Entity.obj
@@ -111,16 +109,16 @@
  0001:000048c0       ??3@YAXPAX0@Z              004058c0 f i Game.obj
  0001:000048e0       ??8error_category@std@@QBE_NABV01@@Z 004058e0 f i Game.obj
  0001:00004920       ??8error_condition@std@@QBE_NABV01@@Z 00405920 f i Game.obj
- 0001:000049a0       ??_EGame@@UAEPAXI@Z        004059a0 f i Game.obj
  0001:000049a0       ??_GGame@@UAEPAXI@Z        004059a0 f i Game.obj
+ 0001:000049a0       ??_EGame@@UAEPAXI@Z        004059a0 f i Game.obj
  0001:000049f0       ??_GGameEngine@@UAEPAXI@Z  004059f0 f i Game.obj
  0001:000049f0       ??_EGameEngine@@UAEPAXI@Z  004059f0 f i Game.obj
- 0001:00004a40       ??_G_Generic_error_category@std@@UAEPAXI@Z 00405a40 f i Game.obj
  0001:00004a40       ??_E_Generic_error_category@std@@UAEPAXI@Z 00405a40 f i Game.obj
- 0001:00004a90       ??_E_Iostream_error_category@std@@UAEPAXI@Z 00405a90 f i Game.obj
+ 0001:00004a40       ??_G_Generic_error_category@std@@UAEPAXI@Z 00405a40 f i Game.obj
  0001:00004a90       ??_G_Iostream_error_category@std@@UAEPAXI@Z 00405a90 f i Game.obj
- 0001:00004ae0       ??_E_System_error_category@std@@UAEPAXI@Z 00405ae0 f i Game.obj
+ 0001:00004a90       ??_E_Iostream_error_category@std@@UAEPAXI@Z 00405a90 f i Game.obj
  0001:00004ae0       ??_G_System_error_category@std@@UAEPAXI@Z 00405ae0 f i Game.obj
+ 0001:00004ae0       ??_E_System_error_category@std@@UAEPAXI@Z 00405ae0 f i Game.obj
  0001:00004b30       ??_Gerror_category@std@@UAEPAXI@Z 00405b30 f i Game.obj
  0001:00004b30       ??_Eerror_category@std@@UAEPAXI@Z 00405b30 f i Game.obj
  0001:00004b80       ?DrawStrings@Game@@UAEXXZ  00405b80 f i Game.obj
@@ -298,8 +296,8 @@
  0001:000092f0       ?update@PlayState@@UAEXXZ  0040a2f0 f   PlayState.obj
  0001:00009310       ??0SmallOrb@@QAE@PAVGameEngine@@HH@Z 0040a310 f   SmallOrb.obj
  0001:00009360       ??1SmallOrb@@UAE@XZ        0040a360 f   SmallOrb.obj
- 0001:00009390       ??_ESmallOrb@@UAEPAXI@Z    0040a390 f i SmallOrb.obj
  0001:00009390       ??_GSmallOrb@@UAEPAXI@Z    0040a390 f i SmallOrb.obj
+ 0001:00009390       ??_ESmallOrb@@UAEPAXI@Z    0040a390 f i SmallOrb.obj
  0001:000093e0       ?onDeath@SmallOrb@@UAEXXZ  0040a3e0 f   SmallOrb.obj
  0001:00009400       ??0StateManager@@QAE@PAVGameEngine@@PAVGameTileManager@@@Z 0040a400 f   StateManager.obj
  0001:000094c0       ??1StateManager@@QAE@XZ    0040a4c0 f   StateManager.obj
@@ -412,8 +410,8 @@
  0001:000100e0       ?update@MenuState@@UAEXXZ  004110e0 f   MenuState.obj
  0001:00010100       ??0SimpleShape@@QAE@PAVSimpleDemo@@@Z 00411100 f i SimpleDemo.obj
  0001:00010250       ??1SimpleShape@@UAE@XZ     00411250 f i SimpleDemo.obj
- 0001:00010280       ??_ESimpleShape@@UAEPAXI@Z 00411280 f i SimpleDemo.obj
  0001:00010280       ??_GSimpleShape@@UAEPAXI@Z 00411280 f i SimpleDemo.obj
+ 0001:00010280       ??_ESimpleShape@@UAEPAXI@Z 00411280 f i SimpleDemo.obj
  0001:000102d0       ?DoUpdate@SimpleShape@@UAEXH@Z 004112d0 f i SimpleDemo.obj
  0001:00010750       ?Draw@SimpleShape@@UAEXXZ  00411750 f i SimpleDemo.obj
  0001:00010800       ?DrawScreenRectangle@BaseEngine@@QAEXHHHHI@Z 00411800 f i SimpleDemo.obj
@@ -449,12 +447,12 @@
  0001:000115e0       ??1BouncingBall1@@UAE@XZ   004125e0 f i BouncingBall.obj
  0001:00011610       ??1BouncingBall2@@UAE@XZ   00412610 f i BouncingBall.obj
  0001:00011640       ??1BouncingBall@@UAE@XZ    00412640 f   BouncingBall.obj
- 0001:00011670       ??_EBouncingBall1@@UAEPAXI@Z 00412670 f i BouncingBall.obj
  0001:00011670       ??_GBouncingBall1@@UAEPAXI@Z 00412670 f i BouncingBall.obj
- 0001:000116c0       ??_EBouncingBall2@@UAEPAXI@Z 004126c0 f i BouncingBall.obj
+ 0001:00011670       ??_EBouncingBall1@@UAEPAXI@Z 00412670 f i BouncingBall.obj
  0001:000116c0       ??_GBouncingBall2@@UAEPAXI@Z 004126c0 f i BouncingBall.obj
- 0001:00011710       ??_EBouncingBall@@UAEPAXI@Z 00412710 f i BouncingBall.obj
+ 0001:000116c0       ??_EBouncingBall2@@UAEPAXI@Z 004126c0 f i BouncingBall.obj
  0001:00011710       ??_GBouncingBall@@UAEPAXI@Z 00412710 f i BouncingBall.obj
+ 0001:00011710       ??_EBouncingBall@@UAEPAXI@Z 00412710 f i BouncingBall.obj
  0001:00011760       ?Calculate@MovementPosition@@QAEXH@Z 00412760 f i BouncingBall.obj
  0001:00011860       ?DoUpdate@BouncingBall1@@UAEXH@Z 00412860 f   BouncingBall.obj
  0001:000119d0       ?DoUpdate@BouncingBall2@@UAEXH@Z 004129d0 f   BouncingBall.obj
@@ -486,6 +484,7 @@
  0001:00012e40       ?KeyDown@BouncingBallMain@@UAEXH@Z 00413e40 f   BouncingBallMain.obj
  0001:00012e80       ?MouseDown@BouncingBallMain@@UAEXHHH@Z 00413e80 f   BouncingBallMain.obj
  0001:00012ed0       ?SetupBackgroundBuffer@BouncingBallMain@@UAEXXZ 00413ed0 f   BouncingBallMain.obj
+ 0001:000135f0       ?checkCollision@Bullet@@QAEXXZ 004145f0 f   Bullet.obj
  0001:000137c0       ??0Demo1Main@@QAE@XZ       004147c0 f   Demo1Main.obj
  0001:00013800       ??1Demo1Main@@UAE@XZ       00414800 f   Demo1Main.obj
  0001:00013830       ??_GDemo1Main@@UAEPAXI@Z   00414830 f i Demo1Main.obj
@@ -493,8 +492,8 @@
  0001:00013880       ?SetupBackgroundBuffer@Demo1Main@@UAEXXZ 00414880 f   Demo1Main.obj
  0001:000138b0       ??0Demo2Main@@QAE@XZ       004148b0 f   Demo2Main.obj
  0001:00013940       ??1Demo2Main@@UAE@XZ       00414940 f   Demo2Main.obj
- 0001:000139d0       ??_EDemo2Main@@UAEPAXI@Z   004149d0 f i Demo2Main.obj
  0001:000139d0       ??_GDemo2Main@@UAEPAXI@Z   004149d0 f i Demo2Main.obj
+ 0001:000139d0       ??_EDemo2Main@@UAEPAXI@Z   004149d0 f i Demo2Main.obj
  0001:00013a20       ?DrawStrings@Demo2Main@@UAEXXZ 00414a20 f   Demo2Main.obj
  0001:00013a80       ?GameAction@Demo2Main@@UAEXXZ 00414a80 f   Demo2Main.obj
  0001:00013ae0       ?InitialiseObjects@Demo2Main@@UAEHXZ 00414ae0 f   Demo2Main.obj
@@ -513,8 +512,8 @@
  0001:00014170       ?DrawTileAt@Demo2TileManager@@UAEXPAVBaseEngine@@PAUSDL_Surface@@HHHH@Z 00415170 f   Demo2TileManager.obj
  0001:000141f0       ??0Demo3Main@@QAE@XZ       004151f0 f   Demo3Main.obj
  0001:00014280       ??1Demo3Main@@UAE@XZ       00415280 f   Demo3Main.obj
- 0001:00014310       ??_GDemo3Main@@UAEPAXI@Z   00415310 f i Demo3Main.obj
  0001:00014310       ??_EDemo3Main@@UAEPAXI@Z   00415310 f i Demo3Main.obj
+ 0001:00014310       ??_GDemo3Main@@UAEPAXI@Z   00415310 f i Demo3Main.obj
  0001:00014360       ?DrawStrings@Demo3Main@@UAEXXZ 00415360 f   Demo3Main.obj
  0001:000143c0       ?GameAction@Demo3Main@@UAEXXZ 004153c0 f   Demo3Main.obj
  0001:00014420       ?InitialiseObjects@Demo3Main@@UAEHXZ 00415420 f   Demo3Main.obj
@@ -532,8 +531,8 @@
  0001:00014e90       ?GetYDiffForDirection@Demo3Object@@QAEHH@Z 00415e90 f i Demo3Object.obj
  0001:00014f10       ??0Demo3ObjectFinished@@QAE@PAVDemo3Main@@HH@Z 00415f10 f   Demo3ObjectFinished.obj
  0001:00015050       ??1Demo3ObjectFinished@@UAE@XZ 00416050 f   Demo3ObjectFinished.obj
- 0001:00015080       ??_GDemo3ObjectFinished@@UAEPAXI@Z 00416080 f i Demo3ObjectFinished.obj
  0001:00015080       ??_EDemo3ObjectFinished@@UAEPAXI@Z 00416080 f i Demo3ObjectFinished.obj
+ 0001:00015080       ??_GDemo3ObjectFinished@@UAEPAXI@Z 00416080 f i Demo3ObjectFinished.obj
  0001:000150d0       ?DoUpdate@Demo3ObjectFinished@@UAEXH@Z 004160d0 f   Demo3ObjectFinished.obj
  0001:000154a0       ?Draw@Demo3ObjectFinished@@UAEXXZ 004164a0 f   Demo3ObjectFinished.obj
  0001:00015580       ?GetXDiffForDirection@Demo3ObjectFinished@@QAEHH@Z 00416580 f i Demo3ObjectFinished.obj
@@ -543,8 +542,8 @@
  0001:000156f0       ?DrawTileAt@Demo3TileManager@@UBEXPAVBaseEngine@@PAUSDL_Surface@@HHHH@Z 004166f0 f   Demo3TileManager.obj
  0001:000158e0       ??0Demo4Main@@QAE@XZ       004168e0 f   Demo4Main.obj
  0001:00015980       ??1Demo4Main@@UAE@XZ       00416980 f   Demo4Main.obj
- 0001:00015a10       ??_GDemo4Main@@UAEPAXI@Z   00416a10 f i Demo4Main.obj
  0001:00015a10       ??_EDemo4Main@@UAEPAXI@Z   00416a10 f i Demo4Main.obj
+ 0001:00015a10       ??_GDemo4Main@@UAEPAXI@Z   00416a10 f i Demo4Main.obj
  0001:00015a60       ?DrawObjects@Demo4Main@@UAEXXZ 00416a60 f   Demo4Main.obj
  0001:00015a90       ?DrawStrings@Demo4Main@@UAEXXZ 00416a90 f   Demo4Main.obj
  0001:00015ba0       ?GameAction@Demo4Main@@UAEXXZ 00416ba0 f   Demo4Main.obj
@@ -556,8 +555,8 @@
  0001:00016300       ?UndrawObjects@Demo4Main@@UAEXXZ 00417300 f   Demo4Main.obj
  0001:00016330       ??0Demo4Object@@QAE@PAVDemo4Main@@HH@Z 00417330 f   Demo4Object.obj
  0001:00016470       ??1Demo4Object@@UAE@XZ     00417470 f   Demo4Object.obj
- 0001:000164a0       ??_EDemo4Object@@UAEPAXI@Z 004174a0 f i Demo4Object.obj
  0001:000164a0       ??_GDemo4Object@@UAEPAXI@Z 004174a0 f i Demo4Object.obj
+ 0001:000164a0       ??_EDemo4Object@@UAEPAXI@Z 004174a0 f i Demo4Object.obj
  0001:000164f0       ?DoUpdate@Demo4Object@@UAEXH@Z 004174f0 f   Demo4Object.obj
  0001:00016ac0       ?Draw@Demo4Object@@UAEXXZ  00417ac0 f   Demo4Object.obj
  0001:00016bb0       ?GetTileManager@Demo4Main@@QAEAAVDemo4TileManager@@XZ 00417bb0 f i Demo4Object.obj
@@ -696,6 +695,7 @@
  0002:00000468       ___xi_a                    0041d468     MSVCRT:cinitexe.obj
  0002:00000878       ___xi_z                    0041d878     MSVCRT:cinitexe.obj
  0002:000009bc       ??_7Bullet@@6B@            0041d9bc     Bullet.obj
+ 0002:000009d0       ??_C@_04HPKGKEOB@hit?6?$AA@ 0041d9d0     Bullet.obj
  0002:000009e0       __real@3ff0000000000000    0041d9e0     Bullet.obj
  0002:000009f0       __real@4000000000000000    0041d9f0     Bullet.obj
  0002:00000a00       ??_7Entity@@6B@            0041da00     Entity.obj
