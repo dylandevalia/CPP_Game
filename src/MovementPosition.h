@@ -25,7 +25,6 @@ protected:
 	/** Calculated current Y coordinate for current time */
 	int m_iCurrentY;
 
-
 public:
 	inline void Reverse()
 	{

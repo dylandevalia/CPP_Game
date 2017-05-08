@@ -1,7 +1,8 @@
 #include "PlayState.h"
 
 #include "Player.h"
-#include "PlasmaOrb.h"
+#include "LargeOrb.h"
+#include "SmallOrb.h"
 
 #include <iostream>
 
@@ -98,7 +99,8 @@ int PlayState::initialiseObjects() {
 
 	// Creates new array and adds new object
 	m_pGame->CreateObjectArray(0);
-	m_pGame->StoreObjectInArrayAtEnd(new PlasmaOrb(m_pGame, 10, 4, 1));
+	m_pGame->StoreObjectInArrayAtEnd(new LargeOrb(m_pGame, 10, 4));
+	//m_pGame->StoreObjectInArrayAtEnd(new SmallOrb(m_pGame, 200, 200));
 	m_pGame->StoreObjectInArrayAtEnd(new Player(m_pGame, 1, 1));
 	printf("%d\n", m_pGame->GetLengthOfObjectArray());
 

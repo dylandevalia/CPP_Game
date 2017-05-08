@@ -49,7 +49,6 @@ unsigned int GameEngine::GetColour(int iColourIndex) const {
 	}
 }
 
-
 /* ------------ */
 /* Object array */
 /* ------------ */

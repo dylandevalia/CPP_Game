@@ -1,8 +1,8 @@
 #include "PlasmaOrb.h"
 #include "Utility.h"
 
-PlasmaOrb::PlasmaOrb(GameEngine* pEngine, int xpos, int ypos, int speed)
-	: Entity(pEngine, true, xpos, ypos, 150, 150, 5)
+PlasmaOrb::PlasmaOrb(GameEngine* pEngine, bool tile, int xpos, int ypos, int speed, int size, int health)
+	: Entity(pEngine, tile, xpos, ypos, size, size, health)
 {
 	m_iDirX = speed * Utility::map(rand() % 2, 0, 1, -1, 1);
 	m_iDirY = speed * Utility::map(rand() % 2, 0, 1, -1, 1);
@@ -10,13 +10,12 @@ PlasmaOrb::PlasmaOrb(GameEngine* pEngine, int xpos, int ypos, int speed)
 	//SetVisible(true);
 }
 
-
 PlasmaOrb::~PlasmaOrb()
 {
 }
 
 void PlasmaOrb::Draw() {
-	if (m_bCurDamaged) {
+	if (m_iDmg-- > 0) {
 		GetEngine()->DrawScreenOval(
 			// Top Left
 			m_iCurrentScreenX,
@@ -27,7 +26,7 @@ void PlasmaOrb::Draw() {
 			// Colour
 			0xFF0000
 		);
-		m_bCurDamaged = false;
+		//m_bCurDamaged = false;
 	}
 	else {
 		GetEngine()->DrawScreenOval(
@@ -46,13 +45,21 @@ void PlasmaOrb::Draw() {
 }
 
 void PlasmaOrb::DoUpdate(int iCurrentTime) {
-	// printf("Update");
-	m_iCurrentScreenX += m_iDirX;
-	m_iCurrentScreenY += m_iDirY;
+	if (getHealth() > 0) {
+		m_iCurrentScreenX += m_iDirX;
+		m_iCurrentScreenY += m_iDirY;
 
-	constrainInBounds();
+		constrainInBounds();
 
-	RedrawObjects();
+		RedrawObjects();
+	} else {
+		onDeath();
+		deleteSelf();
+	}
+}
+
+void PlasmaOrb::onDeath() {
+
 }
 
 void PlasmaOrb::constrainInBounds() {

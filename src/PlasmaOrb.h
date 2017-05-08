@@ -5,11 +5,13 @@ class PlasmaOrb :
 	public Entity
 {
 public:
-	PlasmaOrb(GameEngine*, int, int, int);
+	PlasmaOrb(GameEngine*, bool, int xpos, int ypos, int speed, int size, int health);
 	~PlasmaOrb();
 
 	void Draw();
 	void DoUpdate(int);
+
+	virtual void onDeath();
 
 	void constrainInBounds();
 

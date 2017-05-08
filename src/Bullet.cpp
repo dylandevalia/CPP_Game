@@ -1,4 +1,5 @@
 #include "Bullet.h"
+#include "Player.h"
 
 #define SPEED 7
 #define LIFE_SPAN 75
@@ -48,16 +49,23 @@ void Bullet::DoUpdate(int iCurrentTime) {
 	}
 
 	// Check for collision detection
+	checkCollision();
+
+	RedrawObjects();
+}
+
+void Bullet::checkCollision() {
 	DisplayableObject* pob = nullptr;
 	for (int index = 0; index < GetEngine()->GetLengthOfObjectArray(); index++) {
 		pob = (DisplayableObject*)GetEngine()->GetDisplayableObject(index);
-		if (pob == this)
-			continue;
+		if (pob == this) { continue; }
+		if (Player* e = dynamic_cast<Player*>(pob)) { continue; }
 
 		// If an entity
 		if (Entity* e = dynamic_cast<Entity*>(pob)) {
 			Entity* entity = (Entity*)pob;
 
+			/*
 			// Calculate distance between objects (from centre)
 			int xdiff = GetXCentre() - entity->GetXCentre();
 			if (xdiff < 0) xdiff = -xdiff;
@@ -65,19 +73,31 @@ void Bullet::DoUpdate(int iCurrentTime) {
 			if (ydiff < 0) ydiff = -ydiff;
 
 			// Calculate size of objects
-			int wdiff = (m_iDrawWidth / 2) - (entity->GetWidth() / 2);
+			double wdiff = (m_iDrawWidth / 2.0) - (entity->GetWidth() / 2.0);
 			if (wdiff < 0) wdiff = -wdiff;
-			int hdiff = (m_iDrawHeight / 2) - (entity->GetHeight() / 2);
+			double hdiff = (m_iDrawHeight / 2.0) - (entity->GetHeight() / 2.0);
 			if (hdiff < 0) hdiff = -hdiff;
 
 			// Compare to see if distance is less than size
-			if ((xdiff*xdiff + ydiff*ydiff) < (wdiff*wdiff + hdiff*hdiff)) {
+			if ((xdiff*xdiff + ydiff*ydiff) <= (wdiff*wdiff + hdiff*hdiff)) {
+				printf("hit\n");
+				entity->dealDamage(1);
+				deleteSelf();
+				RedrawObjects();
+			}
+			printf("%d, %d, %f, %f - ", xdiff, ydiff, wdiff, hdiff);
+			printf("%d, %f\n", xdiff*xdiff + ydiff*ydiff, wdiff*wdiff + hdiff*hdiff);
+			*/
+
+			if (
+				abs(GetXCentre() - entity->GetXCentre()) < (GetWidth() / 2.0) + (entity->GetWidth() / 2.0) &&
+				abs(GetYCentre() - entity->GetYCentre()) < (GetHeight() / 2.0) + (entity->GetHeight() / 2.0)
+			) {
+				//printf("hit\n");
 				entity->dealDamage(1);
 				deleteSelf();
 				RedrawObjects();
 			}
 		}
 	}
-
-	RedrawObjects();
 }

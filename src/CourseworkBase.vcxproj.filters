@@ -162,6 +162,12 @@
     <ClInclude Include="Bullet.h">
       <Filter>Header Files\Objects\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="SmallOrb.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="LargeOrb.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp">
@@ -258,6 +264,12 @@
       <Filter>Source Files\Objects\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="LargeOrb.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="SmallOrb.cpp">
       <Filter>Source Files\Objects\Entities</Filter>
     </ClCompile>
   </ItemGroup>

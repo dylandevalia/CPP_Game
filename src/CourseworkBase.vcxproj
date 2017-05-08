@@ -93,11 +93,13 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GameTileManager.h" />
+    <ClInclude Include="LargeOrb.h" />
     <ClInclude Include="ObjectArray.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlasmaOrb.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayState.h" />
+    <ClInclude Include="SmallOrb.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="BaseEngine.h" />
@@ -132,10 +134,12 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GameTileManager.cpp" />
+    <ClCompile Include="LargeOrb.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="PlasmaOrb.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="SmallOrb.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="mainfunction.cpp" />
     <ClCompile Include="BaseEngine.cpp" />
