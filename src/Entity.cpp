@@ -24,6 +24,7 @@ Entity::Entity(GameEngine* pEngine, bool tile, int xpos, int ypos, int width, in
 Entity::~Entity() {
 }
 
+/* Constrains the entity within the bounds of the screen */
 void Entity::constrainInBounds() {
 	GameEngine* pEngine = GetEngine();
 	if (m_iCurrentScreenX <= 50) {
@@ -40,6 +41,7 @@ void Entity::constrainInBounds() {
 	}
 }
 
+/* Checks if the entity is outside of the screen */
 bool Entity::checkBounds() {
 	if (m_iCurrentScreenX <= 50 || m_iCurrentScreenX >= GetEngine()->GetScreenWidth() - m_iDrawWidth - 50) {
 		return false;
@@ -50,6 +52,22 @@ bool Entity::checkBounds() {
 	return true;
 }
 
+int Entity::getDistanceBetween(Entity* target) {
+	int xdiff = GetXCentre() - target->GetXCentre();
+	int ydiff = GetYCentre() - target->GetYCentre();
+	return xdiff*xdiff + ydiff*ydiff;
+}
+
+/* Checks if the entity is colliding with the given entity */
+bool Entity::checkIntersection(Entity* target) {
+	// (a.x - b.x)^2 + (a.y - b.y)^2 <= (a.r + b.r)^2
+
+	double r = (GetWidth() / 2.0) + (target->GetWidth() / 2.0);
+	
+	return (getDistanceBetween(target) <= r*r);
+}
+
+/* Deletes itself from the object array */
 void Entity::deleteSelf() {
 	int index = GetEngine()->GetIndexOfObjectFromArray(this);
 	GetEngine()->RemoveObjectFromArray(index);

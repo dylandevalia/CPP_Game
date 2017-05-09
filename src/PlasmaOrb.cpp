@@ -1,13 +1,11 @@
 #include "PlasmaOrb.h"
-#include "Utility.h"
 
-PlasmaOrb::PlasmaOrb(GameEngine* pEngine, bool tile, int xpos, int ypos, int speed, int size, int health)
-	: Entity(pEngine, tile, xpos, ypos, size, size, health)
+PlasmaOrb::PlasmaOrb(GameEngine* pEngine, bool tile, int xpos, int ypos, int xdir, int ydir, int speed, int size, int health)
+	: Hostile(pEngine, tile, xpos, ypos, size, size, health)
 {
-	m_iDirX = speed * Utility::map(rand() % 2, 0, 1, -1, 1);
-	m_iDirY = speed * Utility::map(rand() % 2, 0, 1, -1, 1);
+	m_iDirX = speed * xdir; // speed * Utility::map(rand() % 2, 0, 1, -1, 1);
+	m_iDirY = speed * ydir; // speed * Utility::map(rand() % 2, 0, 1, -1, 1);
 
-	//SetVisible(true);
 }
 
 PlasmaOrb::~PlasmaOrb()

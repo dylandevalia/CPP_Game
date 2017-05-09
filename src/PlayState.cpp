@@ -102,7 +102,7 @@ int PlayState::initialiseObjects() {
 	m_pGame->StoreObjectInArrayAtEnd(new LargeOrb(m_pGame, 10, 4));
 	//m_pGame->StoreObjectInArrayAtEnd(new SmallOrb(m_pGame, 200, 200));
 	m_pGame->StoreObjectInArrayAtEnd(new Player(m_pGame, 1, 1));
-	printf("%d\n", m_pGame->GetLengthOfObjectArray());
+	//printf("%d\n", m_pGame->GetLengthOfObjectArray());
 
 	return 0;
 }

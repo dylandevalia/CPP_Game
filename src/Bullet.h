@@ -1,11 +1,14 @@
 #pragma once
 #include "Entity.h"
+#include "JPGImage.h"
 
 class Bullet : public Entity {
-private:
+protected:
 	int m_xdir, m_ydir;
 	double m_speed;
 	int m_lifeSpan;
+
+	ImageData m_sprite;
 
 public:
 	Bullet(GameEngine*, int, int, int, int);
@@ -15,4 +18,3 @@ public:
 	void DoUpdate(int);
 	void checkCollision();
 };
-

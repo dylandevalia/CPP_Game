@@ -49,6 +49,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -93,6 +94,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GameTileManager.h" />
+    <ClInclude Include="HomingBullet.h" />
+    <ClInclude Include="Hostile.h" />
     <ClInclude Include="LargeOrb.h" />
     <ClInclude Include="ObjectArray.h" />
     <ClInclude Include="PauseState.h" />
@@ -134,6 +137,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GameTileManager.cpp" />
+    <ClCompile Include="HomingBullet.cpp" />
+    <ClCompile Include="Hostile.cpp" />
     <ClCompile Include="LargeOrb.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="PlasmaOrb.cpp" />

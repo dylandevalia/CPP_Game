@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "Bullet.h"
+#include "HomingBullet.h"
 
 #define SHOT_DELAY 20
 
@@ -66,7 +66,7 @@ void Player::DoUpdate(int iCurrentTime) {
 		if (pEngine->IsKeyPressed(SDLK_RIGHT)) {
 			pEngine->DrawableObjectsChanged();
 			pEngine->StoreObjectInArrayAtEnd(
-				new Bullet(
+				new HomingBullet(
 					pEngine,
 					m_iCurrentScreenX + m_iDrawWidth,
 					m_iCurrentScreenY + (m_iDrawHeight / 2),
@@ -79,7 +79,7 @@ void Player::DoUpdate(int iCurrentTime) {
 		} else if (pEngine->IsKeyPressed(SDLK_LEFT)) {
 			pEngine->DrawableObjectsChanged();
 			pEngine->StoreObjectInArrayAtEnd(
-				new Bullet(
+				new HomingBullet(
 					pEngine,
 					m_iCurrentScreenX,
 					m_iCurrentScreenY + (m_iDrawHeight / 2),
@@ -92,7 +92,7 @@ void Player::DoUpdate(int iCurrentTime) {
 		} else if (pEngine->IsKeyPressed(SDLK_UP)) {
 			pEngine->DrawableObjectsChanged();
 			pEngine->StoreObjectInArrayAtEnd(
-				new Bullet(
+				new HomingBullet(
 					pEngine,
 					m_iCurrentScreenX + (m_iDrawWidth / 2),
 					m_iCurrentScreenY,
@@ -105,7 +105,7 @@ void Player::DoUpdate(int iCurrentTime) {
 		} else if (pEngine->IsKeyPressed(SDLK_DOWN)) {
 			pEngine->DrawableObjectsChanged();
 			pEngine->StoreObjectInArrayAtEnd(
-				new Bullet(
+				new HomingBullet(
 					pEngine,
 					m_iCurrentScreenX + (m_iDrawWidth / 2),
 					m_iCurrentScreenY + m_iDrawHeight,

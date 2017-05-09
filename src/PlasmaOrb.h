@@ -1,11 +1,11 @@
 #pragma once
-#include "Entity.h"
+#include "Hostile.h"
 
 class PlasmaOrb :
-	public Entity
+	public Hostile
 {
 public:
-	PlasmaOrb(GameEngine*, bool, int xpos, int ypos, int speed, int size, int health);
+	PlasmaOrb(GameEngine*, bool, int xpos, int ypos, int xdir, int ydir, int speed, int size, int health);
 	~PlasmaOrb();
 
 	void Draw();
@@ -15,7 +15,7 @@ public:
 
 	void constrainInBounds();
 
-private:
+protected:
 	int m_iDirX, m_iDirY;
 };
 

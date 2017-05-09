@@ -343,9 +343,9 @@ void ImageData::FlexibleRenderImageWithMask(
 	const int YOFFSET2[] = { 1, 0,-1, 0};
 
 	// Get the colour of the mask to apply, if any
-	int iMask = -1; // None
-	if ( (iTransparencyPixelX > -1) && (iTransparencyPixelY > -1) )
-		iMask = m_aiPixels[m_iHeight * iTransparencyPixelY + iTransparencyPixelX];
+	unsigned int iMask = -1; // None
+	if ((iTransparencyPixelX > -1) && (iTransparencyPixelY > -1))
+		iMask = 0x000000; // m_aiPixels[m_iHeight * iTransparencyPixelY + iTransparencyPixelX];
 
 	int iXS,iYS = iYSource,iXT,iYT = iYTarget;
 	int iIntsPerScreenRow = pTarget->pitch / sizeof( unsigned int );

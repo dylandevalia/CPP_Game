@@ -31,23 +31,23 @@
     <Filter Include="Header Files\Engine">
       <UniqueIdentifier>{4e4a6a07-d337-42ef-975e-413637bbb864}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Objects">
-      <UniqueIdentifier>{19553548-2b72-42f0-8842-ebd0fb29afce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Objects">
-      <UniqueIdentifier>{44f71c45-cf36-46a8-9ce8-c88530915404}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\Base">
       <UniqueIdentifier>{22a77f48-1369-440d-a3cf-2786eaa18108}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Base">
       <UniqueIdentifier>{e5e270b2-a7a4-4032-a604-aed5db9e1bbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Objects\Entities">
-      <UniqueIdentifier>{33ced95a-2498-4c3d-954a-088860999497}</UniqueIdentifier>
+    <Filter Include="Source Files\Entities">
+      <UniqueIdentifier>{19553548-2b72-42f0-8842-ebd0fb29afce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Objects\Entities">
+    <Filter Include="Source Files\Entities\Hostile">
       <UniqueIdentifier>{7ada780f-9110-4f5c-8d99-1b0ec796adf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities">
+      <UniqueIdentifier>{44f71c45-cf36-46a8-9ce8-c88530915404}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Hostile">
+      <UniqueIdentifier>{33ced95a-2498-4c3d-954a-088860999497}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -151,22 +151,28 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="PlasmaOrb.h">
-      <Filter>Header Files\Objects\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Objects\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Objects\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Header Files\Objects\Entities</Filter>
+      <Filter>Header Files\Entities\Hostile</Filter>
     </ClInclude>
     <ClInclude Include="SmallOrb.h">
-      <Filter>Header Files\Objects\Entities</Filter>
+      <Filter>Header Files\Entities\Hostile</Filter>
     </ClInclude>
     <ClInclude Include="LargeOrb.h">
-      <Filter>Header Files\Objects\Entities</Filter>
+      <Filter>Header Files\Entities\Hostile</Filter>
+    </ClInclude>
+    <ClInclude Include="Hostile.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="HomingBullet.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -254,23 +260,29 @@
     <ClCompile Include="GameTileManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files\Objects\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="PlasmaOrb.cpp">
-      <Filter>Source Files\Objects\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files\Objects\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Objects\Entities</Filter>
+      <Filter>Source Files\Entities\Hostile</Filter>
     </ClCompile>
     <ClCompile Include="LargeOrb.cpp">
-      <Filter>Source Files\Objects\Entities</Filter>
+      <Filter>Source Files\Entities\Hostile</Filter>
     </ClCompile>
     <ClCompile Include="SmallOrb.cpp">
-      <Filter>Source Files\Objects\Entities</Filter>
+      <Filter>Source Files\Entities\Hostile</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Hostile.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="HomingBullet.cpp">
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

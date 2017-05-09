@@ -1,10 +1,6 @@
 #pragma once
 
-
-
-
-class ImageData
-{
+class ImageData {
 public:
 	ImageData()
 		: m_iWidth(0), m_iHeight(0), m_aiPixels(NULL)

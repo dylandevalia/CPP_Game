@@ -3,7 +3,7 @@
 class SmallOrb :
 	public PlasmaOrb {
 public:
-	SmallOrb(GameEngine*, int, int);
+	SmallOrb(GameEngine*, int, int, int, int);
 	~SmallOrb();
 
 	void onDeath();
