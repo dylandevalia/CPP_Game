@@ -3,7 +3,7 @@
 class LargeOrb :
 	public PlasmaOrb {
 public:
-	LargeOrb(GameEngine*, int, int);
+	LargeOrb(GameEngine*, GameTileManager*, bool, int, int);
 	~LargeOrb();
 	
 	void Draw();

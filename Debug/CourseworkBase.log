@@ -1,54 +1,49 @@
-﻿Build started 10/05/2017 01:21:28 AM.
-     1>Project "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\src\CourseworkBase.vcxproj" on node 2 (Build target(s)).
+﻿Build started 10/05/2017 16:45:59.
+     1>Project "Z:\G52CPP\CPP_Game\src\CourseworkBase.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 2013\VC\bin\CL.exe /c /I..\SDL\include /ZI /nologo /W1 /WX- /Od /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\\" /Fd"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\vc120.pdb" /FR"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\\" /Gd /TP /analyze- /errorReport:prompt /FS LargeOrb.cpp PlayState.cpp SmallOrb.cpp
-         LargeOrb.cpp
-         PlayState.cpp
-         SmallOrb.cpp
-         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\SDL\include /ZI /nologo /W1 /WX- /Od /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Z:\G52CPP\CPP_Game\/Debug\\" /Fd"Z:\G52CPP\CPP_Game\/Debug\vc120.pdb" /FR"Z:\G52CPP\CPP_Game\/Debug\\" /Gd /TP /analyze- /errorReport:prompt /FS Player.cpp
+         Player.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.exe" /NOLOGO /LIBPATH:..\SDL\libx86 SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.pdb" /MAP:"map" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE:NO /IMPLIB:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.lib" /MACHINE:X86 /SAFESEH "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Bullet.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Entity.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Game.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\GameEngine.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\GameTileManager.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\HomingBullet.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Hostile.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\LargeOrb.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PauseState.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PlasmaOrb.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Player.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PlayState.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\SmallOrb.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Spider.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\StateManager.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\mainfunction.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BaseEngine.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\DisplayableObject.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\FontManager.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\JPGImage.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\MenuState.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\SimpleDemo.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\State.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\TileManager.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BouncingBall.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BouncingBallMain.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo1Main.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2Main.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2Object.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2TileManager.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3Main.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3Object.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3ObjectFinished.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3TileManager.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4Main.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4Object.obj"
-         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4TileManager.obj"
-         CourseworkBase.vcxproj -> D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.exe
-       BscMake:
-         C:\Program Files (x86)\Microsoft Visual Studio 2013\VC\bin\bscmake.exe /nologo /o"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\CourseworkBase.bsc" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Bullet.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Entity.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Game.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\GameEngine.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\GameTileManager.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\HomingBullet.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Hostile.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\LargeOrb.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PauseState.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PlasmaOrb.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Player.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\PlayState.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\SmallOrb.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Spider.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\StateManager.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\mainfunction.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BaseEngine.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\DisplayableObject.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\FontManager.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\JPGImage.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\MenuState.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\SimpleDemo.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\State.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\TileManager.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BouncingBall.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\BouncingBallMain.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo1Main.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2Main.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2Object.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo2TileManager.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3Main.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3Object.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3ObjectFinished.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo3TileManager.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4Main.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4Object.sbr" "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Debug\Demo4TileManager.sbr"
-     1>Done Building Project "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\src\CourseworkBase.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\G52CPP\CPP_Game\/Debug\CourseworkBase.exe" /NOLOGO /LIBPATH:..\SDL\libx86 SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Z:\G52CPP\CPP_Game\/Debug\CourseworkBase.pdb" /MAP:"map" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE:NO /IMPLIB:"Z:\G52CPP\CPP_Game\/Debug\CourseworkBase.lib" /MACHINE:X86 /SAFESEH Z:\G52CPP\CPP_Game\/Debug\Bullet.obj
+         Z:\G52CPP\CPP_Game\/Debug\Entity.obj
+         Z:\G52CPP\CPP_Game\/Debug\Game.obj
+         Z:\G52CPP\CPP_Game\/Debug\GameEngine.obj
+         Z:\G52CPP\CPP_Game\/Debug\GameTileManager.obj
+         Z:\G52CPP\CPP_Game\/Debug\HomingBullet.obj
+         Z:\G52CPP\CPP_Game\/Debug\Hostile.obj
+         Z:\G52CPP\CPP_Game\/Debug\LargeOrb.obj
+         Z:\G52CPP\CPP_Game\/Debug\PauseState.obj
+         Z:\G52CPP\CPP_Game\/Debug\PlasmaOrb.obj
+         Z:\G52CPP\CPP_Game\/Debug\Player.obj
+         Z:\G52CPP\CPP_Game\/Debug\PlayState.obj
+         Z:\G52CPP\CPP_Game\/Debug\SmallOrb.obj
+         Z:\G52CPP\CPP_Game\/Debug\Spider.obj
+         Z:\G52CPP\CPP_Game\/Debug\StateManager.obj
+         Z:\G52CPP\CPP_Game\/Debug\mainfunction.obj
+         Z:\G52CPP\CPP_Game\/Debug\BaseEngine.obj
+         Z:\G52CPP\CPP_Game\/Debug\DisplayableObject.obj
+         Z:\G52CPP\CPP_Game\/Debug\FontManager.obj
+         Z:\G52CPP\CPP_Game\/Debug\JPGImage.obj
+         Z:\G52CPP\CPP_Game\/Debug\MenuState.obj
+         Z:\G52CPP\CPP_Game\/Debug\SimpleDemo.obj
+         Z:\G52CPP\CPP_Game\/Debug\State.obj
+         Z:\G52CPP\CPP_Game\/Debug\TileManager.obj
+         Z:\G52CPP\CPP_Game\/Debug\BouncingBall.obj
+         Z:\G52CPP\CPP_Game\/Debug\BouncingBallMain.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo1Main.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo2Main.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo2Object.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo2TileManager.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo3Main.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo3Object.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo3ObjectFinished.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo3TileManager.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo4Main.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo4Object.obj
+         Z:\G52CPP\CPP_Game\/Debug\Demo4TileManager.obj
+         CourseworkBase.vcxproj -> Z:\G52CPP\CPP_Game\/Debug\CourseworkBase.exe
+     1>Done Building Project "Z:\G52CPP\CPP_Game\src\CourseworkBase.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.48
+Time Elapsed 00:00:03.12

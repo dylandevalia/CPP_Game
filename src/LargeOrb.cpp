@@ -2,9 +2,10 @@
 #include "SmallOrb.h"
 #include "Utility.h"
 
-LargeOrb::LargeOrb(GameEngine* pEngine, int xpos, int ypos)
+LargeOrb::LargeOrb(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos, int ypos)
 	: PlasmaOrb(
-	    pEngine, true,
+	    pEngine, pTile,
+		tile,
 		xpos, ypos,
 		Utility::map(rand() % 2, 0, 1, -1, 1),
 		Utility::map(rand() % 2, 0, 1, -1, 1),
@@ -50,10 +51,10 @@ void LargeOrb::onDeath() {
 	GameEngine* pEngine = GetEngine();
 	pEngine->DrawableObjectsChanged();
 	int x = GetXCentre(), y = GetYCentre();
-	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, x-25, y-25, -1, -1));
-	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, x+25, y-25, 1, -1));
-	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, x-25, y+25, -1, 1));
-	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, x+25, y+25, 1, 1));
+	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, m_pTile, false, x-25, y-25, -1, -1));
+	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, m_pTile, false, x + 25, y - 25, 1, -1));
+	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, m_pTile, false, x - 25, y + 25, -1, 1));
+	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, m_pTile, false, x + 25, y + 25, 1, 1));
 	pEngine->SetObjectVisibility(true);
 	RedrawObjects();
 } 

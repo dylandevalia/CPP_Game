@@ -38,7 +38,7 @@ void GameTileManager::DrawTileAt(
 				pSurface
 			);
 			break;
-		case 2: // Floor
+		case 2: // Hole
 			pEngine->DrawRectangle(
 				iStartPositionScreenX,
 				iStartPositionScreenY,
@@ -48,7 +48,14 @@ void GameTileManager::DrawTileAt(
 				pSurface
 				);
 			break;
-		case 3: // Floor alt
+		case 3: // Spike
+			break;
+		case 4: //  | Fly
+		case 5: //  | Spider
+		case 6: //  | Small Orb
+		case 7: //  | Large Orb
+		case 8: //  |
+		default: // |
 			pEngine->DrawRectangle(
 				iStartPositionScreenX,
 				iStartPositionScreenY,
@@ -56,9 +63,7 @@ void GameTileManager::DrawTileAt(
 				iStartPositionScreenY + GetTileHeight() - 1,
 				0xC5E1A5,
 				pSurface
-				);
-			break;
-		default:
+			);
 			break;
 	}
 }
@@ -70,3 +75,4 @@ void GameTileManager::SetAllValues(int iValue) {
 		}
 	}
 }
+

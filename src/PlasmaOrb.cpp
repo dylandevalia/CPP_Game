@@ -1,7 +1,7 @@
 #include "PlasmaOrb.h"
 
-PlasmaOrb::PlasmaOrb(GameEngine* pEngine, bool tile, int xpos, int ypos, int xdir, int ydir, int speed, int size, int health)
-	: Hostile(pEngine, tile, xpos, ypos, size, size, health)
+PlasmaOrb::PlasmaOrb(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos, int ypos, int xdir, int ydir, int speed, int size, int health)
+	: Hostile(pEngine, pTile, tile, xpos, ypos, size, size, health)
 {
 	m_iDirX = speed * xdir; // speed * Utility::map(rand() % 2, 0, 1, -1, 1);
 	m_iDirY = speed * ydir; // speed * Utility::map(rand() % 2, 0, 1, -1, 1);

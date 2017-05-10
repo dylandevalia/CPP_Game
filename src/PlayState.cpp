@@ -21,7 +21,6 @@ Constructor
 PlayState::PlayState(GameEngine* pGame, StateManager* pStateManager, GameTileManager* pTile)
 	: m_pGame(pGame), m_pStateManager(pStateManager), m_pTile(pTile)
 {
-
 }
 
 PlayState::~PlayState() {
@@ -91,6 +90,7 @@ void PlayState::mouseUp(int iButton, int iX, int iY) {
 /* -------- */
 
 int PlayState::initialiseObjects() {
+	/*
 	// Informs the engine that the drawable objects have changed
 	m_pGame->DrawableObjectsChanged();
 
@@ -103,6 +103,7 @@ int PlayState::initialiseObjects() {
 	//m_pGame->StoreObjectInArrayAtEnd(new SmallOrb(m_pGame, 200, 200));
 	m_pGame->StoreObjectInArrayAtEnd(new Player(m_pGame, 1, 1));
 	//printf("%d\n", m_pGame->GetLengthOfObjectArray());
+	*/
 
 	return 0;
 }
@@ -116,24 +117,60 @@ void PlayState::drawStrings() {
 
 }
 
-
+#include <fstream>
+#include <iostream>
+#include <string>
 
 void PlayState::loadLevel() {
-	char* level[] = {
-		"bbbbbbbbbbbbbbb",
-		"bcdcdcdcdcdcdcb",
-		"bdcdcdcdcdcdcdb",
-		"bcdcdcdcdcdcdcb",
-		"bdcdcdcdcdcdcdb",
-		"bcdcdcdcdcdcdcb",
-		"bdcdcdcdcdcdcdb",
-		"bcdcdcdcdcdcdcb",
-		"bbbbbbbbbbbbbbb",
-	};
+	// Load file
+	ifstream inf("levels.dat");
+	if (!inf) {
+		printf("Could not open file 'levels.dat'\n");
+		return;
+	}
+	
+	// Get first line
+	std::string strInput;
+	inf >> strInput;
+	// First line specifies number of levels in file
+	std::string::size_type sz;
+	int noLevels = std::stoi(strInput, &sz); // Convert str -> int
+	// Select random level
+	int levelToLoad = rand() % noLevels;
+	// Skip to start of chosen level
+	for (int i = 1; i < (levelToLoad * 9) + 1; inf >> strInput, i++);
 
+	// Informs the engine that the drawable objects have changed
+	m_pGame->DrawableObjectsChanged();
+
+	// Destorys all existing objects
+	m_pGame->DestoryOldObjects();
+
+	// Creates new array and adds new object
+	m_pGame->CreateObjectArray(0);
+
+	// Go through file to get level information
 	for (int y = 0; y < 9; y++) {
+		inf >> strInput; // Get next line
+		cout << strInput << endl; // Print level to console
 		for (int x = 0; x < 15; x++) {
-			m_pTile->SetValue(x, y, level[y][x] - 'a');
+			int value = strInput[x] - 'a';
+			m_pTile->SetValue(x, y, value);
+			switch (value) {
+				case 4: // e: player
+					m_pGame->StoreObjectInArrayAtEnd(new Player(m_pGame, m_pTile, true, x, y));
+					break;
+				case 5: // f: fly
+					break;
+				case 6: // g: spider
+					break;
+				case 7: // h: small orb
+					m_pGame->StoreObjectInArrayAtBeginning(new SmallOrb(m_pGame, m_pTile, true, x, y));
+					break;
+				case 8: // i: large orb
+					m_pGame->StoreObjectInArrayAtBeginning(new LargeOrb(m_pGame, m_pTile, true, x, y));
+					break;
+			}
 		}
 	}
 }

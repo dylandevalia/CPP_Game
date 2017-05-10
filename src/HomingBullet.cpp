@@ -3,8 +3,8 @@
 
 #include <math.h>
 
-HomingBullet::HomingBullet(GameEngine* pEngine, int xpos, int ypos, int xdir, int ydir) 
-	: Bullet(pEngine, xpos, ypos, xdir, ydir),
+HomingBullet::HomingBullet(GameEngine* pEngine, GameTileManager* pTile, int xpos, int ypos, int xdir, int ydir)
+	: Bullet(pEngine, pTile, xpos, ypos, xdir, ydir),
 	posx(GetXCentre() * 1.0), posy(GetYCentre() * 1.0),
 	velx(xdir * m_speed * 1.0), vely(ydir * m_speed * 1.0),
 	accx(0.0), accy(0.0),
@@ -90,7 +90,7 @@ void HomingBullet::DoUpdate(int iCurrentTime) {
 	accx = accy = 0;
 
 	// collisions
-	if (!checkBounds()) {
+	if (!isInBounds()) {
 		deleteSelf();
 		return;
 	}

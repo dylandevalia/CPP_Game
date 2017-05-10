@@ -175,7 +175,7 @@
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Spider.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities\Hostile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -288,7 +288,7 @@
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Spider.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities\Hostile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

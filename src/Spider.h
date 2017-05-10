@@ -3,7 +3,7 @@
 class Spider :
 	public Hostile {
 public:
-	Spider(GameEngine*, int, int);
+	Spider(GameEngine*, GameTileManager*, bool, int, int);
 	~Spider();
 
 	void Draw();

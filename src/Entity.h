@@ -4,11 +4,12 @@
 
 #include "JPGImage.h"
 #include "DisplayableObject.h"
+#include "GameTileManager.h"
 
 class Entity :
 	public DisplayableObject {
 public:
-	Entity(GameEngine*, bool, int, int, int, int, int);
+	Entity(GameEngine*, GameTileManager*, bool, int, int, int, int, int);
 	~Entity();
 
 	/* Takes damage from health value */
@@ -22,9 +23,11 @@ public:
 	void onDeath() {}
 
 	/* Constrains the entity within the bounds of the screen */
-	void constrainInBounds();
+	void constrainInBounds(int, int);
 	/* Checks if the entity is outside of the screen */
-	bool checkBounds();
+	bool isInBounds();
+	/* Checks if the given point is out of the screen */
+	bool isInBounds(int, int);
 	/* Returns distance squared between entities */
 	int getDistanceBetween(Entity*);
 	/* Checks if the entity is colliding with the given entity */
@@ -36,8 +39,11 @@ public:
 protected:
 	/* Entity health */
 	int m_iMaxHealth, m_iCurHealth, m_iDmg;
-	//bool m_bCurDamaged;
 
+	/* Direction */
+	int m_iDirX, m_iDirY;
+
+	GameTileManager* m_pTile;
 	ImageData m_sSprite;
 };
 

@@ -11,7 +11,7 @@ protected:
 	ImageData m_sprite;
 
 public:
-	Bullet(GameEngine*, int, int, int, int);
+	Bullet(GameEngine*, GameTileManager*, int, int, int, int);
 	~Bullet();
 
 	void Draw();

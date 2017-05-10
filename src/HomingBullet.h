@@ -13,7 +13,7 @@ protected:
 	double maxforce;
 
 public:
-	HomingBullet(GameEngine* pEngine, int xpos, int ypos, int xdir, int ydir);
+	HomingBullet(GameEngine* pEngine, GameTileManager* pTile, int xpos, int ypos, int xdir, int ydir);
 	~HomingBullet();
 
 	void Draw();

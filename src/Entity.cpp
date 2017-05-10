@@ -1,8 +1,8 @@
 #include "Entity.h"
 
 
-Entity::Entity(GameEngine* pEngine, bool tile, int xpos, int ypos, int width, int height, int maxHealth)
-	: DisplayableObject(pEngine)
+Entity::Entity(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos, int ypos, int width, int height, int maxHealth)
+	: DisplayableObject(pEngine), m_pTile(pTile)
 {
 	m_iCurHealth = m_iMaxHealth = maxHealth;
 
@@ -27,31 +27,36 @@ Entity::~Entity() {
 }
 
 /* Constrains the entity within the bounds of the screen */
-void Entity::constrainInBounds() {
-	GameEngine* pEngine = GetEngine();
-	if (m_iCurrentScreenX <= 50) {
-		m_iCurrentScreenX = 50;
+void Entity::constrainInBounds(int xdir, int ydir) {
+	if (isInBounds()) { return; }
+
+	if (xdir < 0) {
+		m_iCurrentScreenX = (m_pTile->GetTileXForPositionOnScreen(m_iCurrentScreenX) + 1) * 50;
+	} else if (xdir > 0) {
+		m_iCurrentScreenX = (m_pTile->GetTileXForPositionOnScreen(m_iCurrentScreenX) - 1) * 50 + m_iDrawWidth;
 	}
-	if (m_iCurrentScreenX >= pEngine->GetScreenWidth() - m_iDrawWidth - 50) {
-		m_iCurrentScreenX = pEngine->GetScreenWidth() - m_iDrawWidth - 50;
-	}
-	if (m_iCurrentScreenY <= 50) {
-		m_iCurrentScreenY = 50;
-	}
-	if (m_iCurrentScreenY >= pEngine->GetScreenHeight() - m_iDrawHeight - 50) {
-		m_iCurrentScreenY = pEngine->GetScreenHeight() - m_iDrawHeight - 50;
+
+	if (ydir < 0) {
+		m_iCurrentScreenY = (m_pTile->GetTileYForPositionOnScreen(m_iCurrentScreenY) + 1) * 50;
+	} else if (ydir > 0) {
+		m_iCurrentScreenY = (m_pTile->GetTileYForPositionOnScreen(m_iCurrentScreenY) - 1) * 50 + m_iDrawHeight - 1;
 	}
 }
 
-/* Checks if the entity is outside of the screen */
-bool Entity::checkBounds() {
-	if (m_iCurrentScreenX <= 50 || m_iCurrentScreenX >= GetEngine()->GetScreenWidth() - m_iDrawWidth - 50) {
-		return false;
-	}
-	if (m_iCurrentScreenY <= 50 || m_iCurrentScreenY >= GetEngine()->GetScreenHeight() - m_iDrawHeight - 50) {
-		return false;
-	}
-	return true;
+/* Checks if the entity is on safe tiles */
+bool Entity::isInBounds() {
+	return isInBounds(m_iCurrentScreenX,                m_iCurrentScreenY)                 // left  up
+		&& isInBounds(m_iCurrentScreenX,                m_iCurrentScreenY + m_iDrawHeight) // left  down
+		&& isInBounds(m_iCurrentScreenX + m_iDrawWidth, m_iCurrentScreenY)                 // right up
+		&& isInBounds(m_iCurrentScreenX + m_iDrawWidth, m_iCurrentScreenY + m_iDrawHeight) // right down
+	;
+}
+
+/* Checks if the given point is not on a 'solid' tile */
+// If on safe tile  - return true
+// If on soild tile - return false
+bool Entity::isInBounds(int xpos, int ypos) {
+	return (m_pTile->GetValue(m_pTile->GetTileXForPositionOnScreen(xpos), m_pTile->GetTileYForPositionOnScreen(ypos)) > 2);
 }
 
 int Entity::getDistanceBetween(Entity* target) {

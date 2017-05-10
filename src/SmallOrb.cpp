@@ -1,9 +1,15 @@
 #include "SmallOrb.h"
 #include "Spider.h"
 
-SmallOrb::SmallOrb(GameEngine* pEngine, int xpos, int ypos, int xdir, int ydir)
-	: PlasmaOrb(pEngine, false, xpos, ypos, xdir, ydir, 2, 50, 3)
+SmallOrb::SmallOrb(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos, int ypos, int xdir, int ydir)
+	: PlasmaOrb(pEngine, pTile, tile, xpos, ypos, xdir, ydir, 2, 50, 3)
 {
+}
+
+SmallOrb::SmallOrb(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos, int ypos)
+	: PlasmaOrb(pEngine, pTile, tile, xpos, ypos, rand() % 2 == 0 ? -1 : 1, rand() % 2 == 0 ? -1 : 1, 2, 50, 3)
+{
+
 }
 
 SmallOrb::~SmallOrb() {
@@ -41,8 +47,8 @@ void SmallOrb::onDeath() {
 	GameEngine* pEngine = GetEngine();
 	pEngine->DrawableObjectsChanged();
 	int x = GetXCentre(), y = GetYCentre();
-	pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, x - 10, y - 10));
-	pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, x + 10, y + 10));
+	//pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, x - 10, y - 10));
+	//pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, x + 10, y + 10));
 	pEngine->SetObjectVisibility(true);
 	RedrawObjects();
 }

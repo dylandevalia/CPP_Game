@@ -3,7 +3,7 @@
 class Hostile :
 	public Entity {
 public:
-	Hostile(GameEngine*, bool, int, int, int, int, int);
+	Hostile(GameEngine*, GameTileManager*, bool, int, int, int, int, int);
 	~Hostile();
 };
 

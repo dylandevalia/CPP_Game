@@ -6,7 +6,7 @@ class PlasmaOrb :
 	public Hostile
 {
 public:
-	PlasmaOrb(GameEngine*, bool, int xpos, int ypos, int xdir, int ydir, int speed, int size, int health);
+	PlasmaOrb(GameEngine*, GameTileManager*, bool, int xpos, int ypos, int xdir, int ydir, int speed, int size, int health);
 	~PlasmaOrb();
 
 	void Draw();
