@@ -57,4 +57,6 @@ void LargeOrb::onDeath() {
 	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, m_pTile, false, x + 25, y + 25, 1, 1));
 	pEngine->SetObjectVisibility(true);
 	RedrawObjects();
+
+	deleteSelf();
 } 

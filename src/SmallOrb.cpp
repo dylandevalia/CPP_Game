@@ -47,8 +47,9 @@ void SmallOrb::onDeath() {
 	GameEngine* pEngine = GetEngine();
 	pEngine->DrawableObjectsChanged();
 	int x = GetXCentre(), y = GetYCentre();
-	//pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, x - 10, y - 10));
-	//pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, x + 10, y + 10));
+	pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, m_pTile, false, x - 10, y - 10));
+	pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, m_pTile, false, x + 10, y + 10));
 	pEngine->SetObjectVisibility(true);
 	RedrawObjects();
+	deleteSelf();
 }

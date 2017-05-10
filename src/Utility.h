@@ -15,5 +15,14 @@ public:
 	static int map(int value, int start1, int stop1, int start2, int stop2) {
 		return ((value - start1) / (stop1 - start1))*(stop2 - start2) + start2;
 	}
+
+	static int sign(int value) {
+		if (value > 0) {
+			return 1;
+		} else if (value < 0) {
+			return -1;
+		}
+		return 0;
+	}
 };
 

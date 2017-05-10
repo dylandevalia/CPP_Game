@@ -38,7 +38,7 @@ void GameTileManager::DrawTileAt(
 				pSurface
 			);
 			break;
-		case 2: // Hole
+		case 2: // Rock
 			pEngine->DrawRectangle(
 				iStartPositionScreenX,
 				iStartPositionScreenY,
@@ -46,7 +46,7 @@ void GameTileManager::DrawTileAt(
 				iStartPositionScreenY + GetTileHeight() - 1,
 				0xDCEDC8,
 				pSurface
-				);
+			);
 			break;
 		case 3: // Spike
 			break;

@@ -8,5 +8,9 @@ public:
 
 	void Draw();
 	void DoUpdate(int);
+	void onDeath();
+
+protected:
+	int m_iState, m_iWalk = 0, m_iIdle = 0;
 };
 

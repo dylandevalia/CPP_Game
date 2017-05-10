@@ -1,5 +1,5 @@
 #include "Entity.h"
-
+#include "Utility.h"
 
 Entity::Entity(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos, int ypos, int width, int height, int maxHealth)
 	: DisplayableObject(pEngine), m_pTile(pTile)
@@ -30,17 +30,23 @@ Entity::~Entity() {
 void Entity::constrainInBounds(int xdir, int ydir) {
 	if (isInBounds()) { return; }
 
-	if (xdir < 0) {
-		m_iCurrentScreenX = (m_pTile->GetTileXForPositionOnScreen(m_iCurrentScreenX) + 1) * 50;
-	} else if (xdir > 0) {
-		m_iCurrentScreenX = (m_pTile->GetTileXForPositionOnScreen(m_iCurrentScreenX) - 1) * 50 + m_iDrawWidth;
+	int x = m_iPreviousScreenX;
+	int y = m_iPreviousScreenY;
+
+	if (!isInBounds(x + xdir, y)) {
+		while (isInBounds(x + Utility::sign(xdir), y)) {
+			x += Utility::sign(xdir);
+		}
 	}
 
-	if (ydir < 0) {
-		m_iCurrentScreenY = (m_pTile->GetTileYForPositionOnScreen(m_iCurrentScreenY) + 1) * 50;
-	} else if (ydir > 0) {
-		m_iCurrentScreenY = (m_pTile->GetTileYForPositionOnScreen(m_iCurrentScreenY) - 1) * 50 + m_iDrawHeight - 1;
+	if (!isInBounds(x, y + ydir)) {
+		while (isInBounds(x, y + Utility::sign(ydir))) {
+			y += Utility::sign(ydir);
+		}
 	}
+
+	m_iCurrentScreenX = x;
+	m_iCurrentScreenY = y;
 }
 
 /* Checks if the entity is on safe tiles */

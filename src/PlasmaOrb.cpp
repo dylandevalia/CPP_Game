@@ -52,7 +52,6 @@ void PlasmaOrb::DoUpdate(int iCurrentTime) {
 		RedrawObjects();
 	} else {
 		onDeath();
-		deleteSelf();
 	}
 }
 
