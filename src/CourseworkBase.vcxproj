@@ -103,6 +103,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="SmallOrb.h" />
+    <ClInclude Include="Spider.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="BaseEngine.h" />
@@ -145,6 +146,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="SmallOrb.cpp" />
+    <ClCompile Include="Spider.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="mainfunction.cpp" />
     <ClCompile Include="BaseEngine.cpp" />

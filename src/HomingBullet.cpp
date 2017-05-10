@@ -10,11 +10,60 @@ HomingBullet::HomingBullet(GameEngine* pEngine, int xpos, int ypos, int xdir, in
 	accx(0.0), accy(0.0),
 	maxforce(5.0)
 {
-	m_sprite.LoadImage("sprite_bullet-red.png");
 }
 
 
 HomingBullet::~HomingBullet() {
+}
+
+void HomingBullet::Draw() {
+	if (m_xdir == 1) { // Right
+		m_sSprite.FlexibleRenderImageWithMask(
+			GetEngine()->GetForeground(),                        // Surface
+			100, 0,                                // Start coords in image
+			m_iCurrentScreenX, m_iCurrentScreenY, // Start coords on screen
+			30, 30,                                        // Width, height
+			0,                        // Number of 90* clockwise roatations
+			0, 0,                                     // Transparency pixel
+			100,                                   // Brightness percentage
+			-1, -1, -1, -1                     // Alternating pixel colours
+		);
+	} else if (m_xdir == -1) { // Left
+		m_sSprite.FlexibleRenderImageWithMask(
+			GetEngine()->GetForeground(),                        // Surface
+			150, 50,                               // Start coords in image
+			m_iCurrentScreenX, m_iCurrentScreenY, // Start coords on screen
+			30, 30,                                        // Width, height
+			0,                        // Number of 90* clockwise roatations
+			0, 0,                                     // Transparency pixel
+			100,                                   // Brightness percentage
+			-1, -1, -1, -1                     // Alternating pixel colours
+		);
+	} else if (m_ydir == 1) { // Down
+		m_sSprite.FlexibleRenderImageWithMask(
+			GetEngine()->GetForeground(),                        // Surface
+			150, 0,                                 // Start coords in image
+			m_iCurrentScreenX, m_iCurrentScreenY, // Start coords on screen
+			30, 30,                                        // Width, height
+			0,                        // Number of 90* clockwise roatations
+			0, 0,                                     // Transparency pixel
+			100,                                   // Brightness percentage
+			-1, -1, -1, -1                     // Alternating pixel colours
+		);
+	} else if (m_ydir == -1) { // Up
+		m_sSprite.FlexibleRenderImageWithMask(
+			GetEngine()->GetForeground(),                        // Surface
+			100, 50,                               // Start coords in image
+			m_iCurrentScreenX, m_iCurrentScreenY, // Start coords on screen
+			30, 30,                                        // Width, height
+			0,                        // Number of 90* clockwise roatations
+			0, 0,                                     // Transparency pixel
+			100,                                   // Brightness percentage
+			-1, -1, -1, -1                     // Alternating pixel colours
+		);
+	}
+
+	StoreLastScreenPositionForUndraw();
 }
 
 void HomingBullet::DoUpdate(int iCurrentTime) {

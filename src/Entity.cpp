@@ -18,6 +18,8 @@ Entity::Entity(GameEngine* pEngine, bool tile, int xpos, int ypos, int width, in
 
 	m_iDrawWidth = width;
 	m_iDrawHeight = height;
+
+	m_sSprite.LoadImage("spritesheet.png");
 }
 
 

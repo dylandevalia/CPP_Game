@@ -5,6 +5,7 @@ class LargeOrb :
 public:
 	LargeOrb(GameEngine*, int, int);
 	~LargeOrb();
-
+	
+	void Draw();
 	void onDeath();
 };

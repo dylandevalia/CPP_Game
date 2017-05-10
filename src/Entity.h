@@ -2,6 +2,7 @@
 #include "header.h"
 #include "templates.h"
 
+#include "JPGImage.h"
 #include "DisplayableObject.h"
 
 class Entity :
@@ -11,7 +12,7 @@ public:
 	~Entity();
 
 	/* Takes damage from health value */
-	void dealDamage(double damage) { m_iCurHealth -= damage; m_iDmg = 2; }
+	void dealDamage(double damage) { m_iCurHealth -= damage; m_iDmg = 5; }
 	/* Returns the entity's current health */
 	double getHealth() { return m_iCurHealth; }
 	/* Returns the entity's maximum health */
@@ -36,5 +37,7 @@ protected:
 	/* Entity health */
 	int m_iMaxHealth, m_iCurHealth, m_iDmg;
 	//bool m_bCurDamaged;
+
+	ImageData m_sSprite;
 };
 

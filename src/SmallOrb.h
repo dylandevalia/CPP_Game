@@ -6,6 +6,6 @@ public:
 	SmallOrb(GameEngine*, int, int, int, int);
 	~SmallOrb();
 
+	void Draw();
 	void onDeath();
 };
-

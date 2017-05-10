@@ -1,5 +1,6 @@
 #pragma once
 #include "Hostile.h"
+#include "JPGImage.h"
 
 class PlasmaOrb :
 	public Hostile
@@ -17,5 +18,6 @@ public:
 
 protected:
 	int m_iDirX, m_iDirY;
+	ImageData m_sprite;
 };
 

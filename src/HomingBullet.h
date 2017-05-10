@@ -16,6 +16,7 @@ public:
 	HomingBullet(GameEngine* pEngine, int xpos, int ypos, int xdir, int ydir);
 	~HomingBullet();
 
+	void Draw();
 	void DoUpdate(int);
 	Entity* findClosestEntity(int range);
 	void steer();
