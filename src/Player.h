@@ -23,5 +23,7 @@ private:
 	int m_iShotDelay;
 	int m_iIFrame;
 	bool m_bHoming;
+
+	char strLives[50];
 };
 

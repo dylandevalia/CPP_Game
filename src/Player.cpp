@@ -10,6 +10,8 @@ Player::Player(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos,
 {
 	m_iDirX = 0;
 	m_iDirY = 0;
+
+	//strLives = "";
 }
 
 Player::Player(GameEngine* pEngine, GameTileManager* pTile)
@@ -68,6 +70,11 @@ void Player::Draw() {
 			0x9C27B0
 		);
 	}
+
+	sprintf(strLives, "Lives - %d", m_iCurHealth);
+	m_pEngine->DrawScreenString(20, 5, strLives, 0, NULL);
+	m_pEngine->Redraw(true);
+
 	StoreLastScreenPositionForUndraw();
 }
 
@@ -91,6 +98,7 @@ void Player::DoUpdate(int iCurrentTime) {
 
 	// Bullets
 	shoot(pEngine);
+
 
 	RedrawObjects();
 }
@@ -163,58 +171,109 @@ void Player::hit(GameEngine* pEngine) {
 
 void Player::shoot(GameEngine* pEngine) {
 	if (m_iShotDelay <= 0) {
-		if (pEngine->IsKeyPressed(SDLK_RIGHT)) {
-			pEngine->DrawableObjectsChanged();
-			pEngine->StoreObjectInArrayAtEnd(
-				new Bullet(
-				pEngine, m_pTile,
-				m_iCurrentScreenX + m_iDrawWidth,
-				m_iCurrentScreenY + (m_iDrawHeight / 2),
-				1, 0
-				)
-				);
-			pEngine->SetObjectVisibility(true);
-			m_iShotDelay = SHOT_DELAY;
+		if (pEngine->IsKeyPressed(SDLK_LCTRL)) {
+			if (pEngine->IsKeyPressed(SDLK_RIGHT)) {
+				pEngine->DrawableObjectsChanged();
+				pEngine->StoreObjectInArrayAtEnd(
+					new HomingBullet(
+					pEngine, m_pTile,
+					m_iCurrentScreenX + m_iDrawWidth,
+					m_iCurrentScreenY + (m_iDrawHeight / 2),
+					1, 0
+					)
+					);
+				pEngine->SetObjectVisibility(true);
+				m_iShotDelay = SHOT_DELAY;
+			} else if (pEngine->IsKeyPressed(SDLK_LEFT)) {
+				pEngine->DrawableObjectsChanged();
+				pEngine->StoreObjectInArrayAtEnd(
+					new HomingBullet(
+					pEngine, m_pTile,
+					m_iCurrentScreenX,
+					m_iCurrentScreenY + (m_iDrawHeight / 2),
+					-1, 0
+					)
+					);
+				pEngine->SetObjectVisibility(true);
+				m_iShotDelay = SHOT_DELAY;
+			} else if (pEngine->IsKeyPressed(SDLK_UP)) {
+				pEngine->DrawableObjectsChanged();
+				pEngine->StoreObjectInArrayAtEnd(
+					new HomingBullet(
+					pEngine, m_pTile,
+					m_iCurrentScreenX + (m_iDrawWidth / 2),
+					m_iCurrentScreenY,
+					0, -1
+					)
+					);
+				pEngine->SetObjectVisibility(true);
+				m_iShotDelay = SHOT_DELAY;
+			} else if (pEngine->IsKeyPressed(SDLK_DOWN)) {
+				pEngine->DrawableObjectsChanged();
+				pEngine->StoreObjectInArrayAtEnd(
+					new HomingBullet(
+					pEngine, m_pTile,
+					m_iCurrentScreenX + (m_iDrawWidth / 2),
+					m_iCurrentScreenY + m_iDrawHeight,
+					0, 1
+					)
+					);
+				pEngine->SetObjectVisibility(true);
+				m_iShotDelay = SHOT_DELAY;
+			}
+		} else {
+			if (pEngine->IsKeyPressed(SDLK_RIGHT)) {
+				pEngine->DrawableObjectsChanged();
+				pEngine->StoreObjectInArrayAtEnd(
+					new Bullet(
+					pEngine, m_pTile,
+					m_iCurrentScreenX + m_iDrawWidth,
+					m_iCurrentScreenY + (m_iDrawHeight / 2),
+					1, 0
+					)
+					);
+				pEngine->SetObjectVisibility(true);
+				m_iShotDelay = SHOT_DELAY;
+			} else if (pEngine->IsKeyPressed(SDLK_LEFT)) {
+				pEngine->DrawableObjectsChanged();
+				pEngine->StoreObjectInArrayAtEnd(
+					new Bullet(
+					pEngine, m_pTile,
+					m_iCurrentScreenX,
+					m_iCurrentScreenY + (m_iDrawHeight / 2),
+					-1, 0
+					)
+					);
+				pEngine->SetObjectVisibility(true);
+				m_iShotDelay = SHOT_DELAY;
+			} else if (pEngine->IsKeyPressed(SDLK_UP)) {
+				pEngine->DrawableObjectsChanged();
+				pEngine->StoreObjectInArrayAtEnd(
+					new Bullet(
+					pEngine, m_pTile,
+					m_iCurrentScreenX + (m_iDrawWidth / 2),
+					m_iCurrentScreenY,
+					0, -1
+					)
+					);
+				pEngine->SetObjectVisibility(true);
+				m_iShotDelay = SHOT_DELAY;
+			} else if (pEngine->IsKeyPressed(SDLK_DOWN)) {
+				pEngine->DrawableObjectsChanged();
+				pEngine->StoreObjectInArrayAtEnd(
+					new Bullet(
+					pEngine, m_pTile,
+					m_iCurrentScreenX + (m_iDrawWidth / 2),
+					m_iCurrentScreenY + m_iDrawHeight,
+					0, 1
+					)
+					);
+				pEngine->SetObjectVisibility(true);
+				m_iShotDelay = SHOT_DELAY;
+			}
 		}
-		else if (pEngine->IsKeyPressed(SDLK_LEFT)) {
-			pEngine->DrawableObjectsChanged();
-			pEngine->StoreObjectInArrayAtEnd(
-				new Bullet(
-				pEngine, m_pTile,
-				m_iCurrentScreenX,
-				m_iCurrentScreenY + (m_iDrawHeight / 2),
-				-1, 0
-				)
-				);
-			pEngine->SetObjectVisibility(true);
-			m_iShotDelay = SHOT_DELAY;
-		}
-		else if (pEngine->IsKeyPressed(SDLK_UP)) {
-			pEngine->DrawableObjectsChanged();
-			pEngine->StoreObjectInArrayAtEnd(
-				new Bullet(
-				pEngine, m_pTile,
-				m_iCurrentScreenX + (m_iDrawWidth / 2),
-				m_iCurrentScreenY,
-				0, -1
-				)
-				);
-			pEngine->SetObjectVisibility(true);
-			m_iShotDelay = SHOT_DELAY;
-		}
-		else if (pEngine->IsKeyPressed(SDLK_DOWN)) {
-			pEngine->DrawableObjectsChanged();
-			pEngine->StoreObjectInArrayAtEnd(
-				new Bullet(
-				pEngine, m_pTile,
-				m_iCurrentScreenX + (m_iDrawWidth / 2),
-				m_iCurrentScreenY + m_iDrawHeight,
-				0, 1
-				)
-				);
-			pEngine->SetObjectVisibility(true);
-			m_iShotDelay = SHOT_DELAY;
-		}
+
+		
 	}
 	else {
 		m_iShotDelay--;

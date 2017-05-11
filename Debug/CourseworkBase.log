@@ -1,8 +1,8 @@
-﻿Build started 11/05/2017 02:06:11.
+﻿Build started 11/05/2017 02:39:33.
      1>Project "Z:\CPP_Game\src\CourseworkBase.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\SDL\include /ZI /nologo /W1 /WX- /Od /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Z:\CPP_Game\/Debug\\" /Fd"Z:\CPP_Game\/Debug\vc120.pdb" /FR"Z:\CPP_Game\/Debug\\" /Gd /TP /analyze- /errorReport:prompt /FS PlayState.cpp
-         PlayState.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\SDL\include /ZI /nologo /W1 /WX- /Od /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Z:\CPP_Game\/Debug\\" /Fd"Z:\CPP_Game\/Debug\vc120.pdb" /FR"Z:\CPP_Game\/Debug\\" /Gd /TP /analyze- /errorReport:prompt /FS Entity.cpp
+         Entity.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\CPP_Game\/Debug\CourseworkBase.exe" /NOLOGO /LIBPATH:..\SDL\libx86 SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Z:\CPP_Game\/Debug\CourseworkBase.pdb" /MAP:"map" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE:NO /IMPLIB:"Z:\CPP_Game\/Debug\CourseworkBase.lib" /MACHINE:X86 /SAFESEH Z:\CPP_Game\/Debug\Bullet.obj
          Z:\CPP_Game\/Debug\Entity.obj
@@ -46,4 +46,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.53
+Time Elapsed 00:00:03.70

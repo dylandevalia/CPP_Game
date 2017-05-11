@@ -4,6 +4,7 @@ Spider::Spider(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos,
 	: Hostile(pEngine, pTile, tile, xpos, ypos, 50, 25, 2),
 	m_iState(0)
 {
+	m_iDirX = m_iDirY = 0;
 }
 
 Spider::~Spider() {
