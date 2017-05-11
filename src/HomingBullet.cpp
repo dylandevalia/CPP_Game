@@ -16,6 +16,7 @@ HomingBullet::HomingBullet(GameEngine* pEngine, GameTileManager* pTile, int xpos
 HomingBullet::~HomingBullet() {
 }
 
+/* Used to draw object */
 void HomingBullet::Draw() {
 	if (m_xdir == 1) { // Right
 		m_sSprite.FlexibleRenderImageWithMask(
@@ -42,7 +43,7 @@ void HomingBullet::Draw() {
 	} else if (m_ydir == 1) { // Down
 		m_sSprite.FlexibleRenderImageWithMask(
 			GetEngine()->GetForeground(),                        // Surface
-			150, 0,                                 // Start coords in image
+			150, 0,                                // Start coords in image
 			m_iCurrentScreenX, m_iCurrentScreenY, // Start coords on screen
 			30, 30,                                        // Width, height
 			0,                        // Number of 90* clockwise roatations
@@ -66,6 +67,7 @@ void HomingBullet::Draw() {
 	StoreLastScreenPositionForUndraw();
 }
 
+/* Called to update the object */
 void HomingBullet::DoUpdate(int iCurrentTime) {
 	if (--m_lifeSpan <= 0) {
 		onDeath();
@@ -101,6 +103,7 @@ void HomingBullet::DoUpdate(int iCurrentTime) {
 	RedrawObjects();
 }
 
+/* Searches through the object array to find the closet entity within a range */
 Entity* HomingBullet::findClosestEntity(int range) {
 	int iClosest = INT_MAX;
 	Entity* pClosest = nullptr;
@@ -124,6 +127,7 @@ Entity* HomingBullet::findClosestEntity(int range) {
 	return pClosest;
 }
 
+/* Steering algorithm to move towards the nearest entity */
 void HomingBullet::steer() {
 	Entity* pClosest = findClosestEntity(150);
 	if (pClosest != nullptr) {

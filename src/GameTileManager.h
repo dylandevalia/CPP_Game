@@ -9,9 +9,15 @@ public:
 	GameTileManager(int, int);
 	~GameTileManager();
 
-	void DrawTileAt(BaseEngine*, SDL_Surface*, int, int, int, int) const;
+	/* Call to draw a tile at index using its value */
+	void DrawTileAt(BaseEngine* pEngine,
+		SDL_Surface* pSurface,
+		int iMapX, int iMapY,
+		int iStartPositionScreenX, int iStartPositionScreenY
+	) const;
 
-	void SetAllValues(int);
+	/* Sets all values */
+	void SetAllValues(int iValue);
 
 protected:
 	ImageData m_sSprite;

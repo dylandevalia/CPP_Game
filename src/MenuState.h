@@ -41,5 +41,8 @@ public:
 	void drawStrings();
 
 protected:
+	char m_str[25];
+	int m_iScore, m_iScoreCooldown, m_iMaxScore;
+
 	ImageData m_sBackground;
 };

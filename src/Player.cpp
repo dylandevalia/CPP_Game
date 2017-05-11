@@ -2,11 +2,15 @@
 #include "HomingBullet.h"
 #include "Hostile.h"
 
+#include "Utility.h"
+#include <math.h>
+
 #define SHOT_DELAY 20
 
-Player::Player(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos, int ypos)
+Player::Player(GameEngine* pEngine, GameTileManager* pTile, StateManager* pState,  bool tile, int xpos, int ypos)
 	: Entity(pEngine, pTile, tile, xpos, ypos, 50, 50, 3),
-	m_iSpeed(4)
+	m_iSpeed(4),
+	m_pState(pState)
 {
 	m_iDirX = 0;
 	m_iDirY = 0;
@@ -14,8 +18,9 @@ Player::Player(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos,
 	//strLives = "";
 }
 
-Player::Player(GameEngine* pEngine, GameTileManager* pTile)
-	: Entity(pEngine, pTile, false, NULL, NULL, 50, 50, 3)
+Player::Player(GameEngine* pEngine, GameTileManager* pTile, StateManager* pState)
+	: Entity(pEngine, pTile, false, NULL, NULL, 50, 50, 3),
+	m_pState(pState)
 {
 	m_iDirX = 0;
 	m_iDirY = 0;
@@ -24,6 +29,7 @@ Player::Player(GameEngine* pEngine, GameTileManager* pTile)
 Player::~Player() {
 }
 
+/* Sets the players position*/
 void Player::setPos(bool tile, int xpos, int ypos) {
 	if (tile) {
 		m_iCurrentScreenX = m_iPreviousScreenX = (xpos * 50) + 25 - (m_iDrawWidth / 2);
@@ -35,6 +41,7 @@ void Player::setPos(bool tile, int xpos, int ypos) {
 	}
 }
 
+/* Used to draw object */
 void Player::Draw() {
 	if (m_iDmg-- > 0) {
 		GetEngine()->DrawScreenOval(
@@ -48,16 +55,29 @@ void Player::Draw() {
 			0xff0000
 		);
 	} else if (m_iIFrame > 0) {
-		GetEngine()->DrawScreenOval(
-			// Top Left
-			m_iCurrentScreenX,
-			m_iCurrentScreenY,
-			// Bottom Right
-			m_iCurrentScreenX + m_iDrawWidth - 1,
-			m_iCurrentScreenY + m_iDrawHeight - 1,
-			// Colour
-			0x00ff00
-		);
+		if (m_iIFrame % 10 < 5) {
+			GetEngine()->DrawScreenOval(
+				// Top Left
+				m_iCurrentScreenX,
+				m_iCurrentScreenY,
+				// Bottom Right
+				m_iCurrentScreenX + m_iDrawWidth - 1,
+				m_iCurrentScreenY + m_iDrawHeight - 1,
+				// Colour
+				0x00ff00
+			);
+		} else {
+			GetEngine()->DrawScreenOval(
+				// Top Left
+				m_iCurrentScreenX,
+				m_iCurrentScreenY,
+				// Bottom Right
+				m_iCurrentScreenX + m_iDrawWidth - 1,
+				m_iCurrentScreenY + m_iDrawHeight - 1,
+				// Colour
+				0x00cc00
+			);
+		}
 	} else {
 		GetEngine()->DrawScreenOval(
 			// Top Left
@@ -71,13 +91,14 @@ void Player::Draw() {
 		);
 	}
 
-	sprintf(strLives, "Lives - %d", m_iCurHealth);
+	sprintf(strLives, "Lives Left - %d", m_iCurHealth);
 	m_pEngine->DrawScreenString(20, 5, strLives, 0, NULL);
 	m_pEngine->Redraw(true);
 
 	StoreLastScreenPositionForUndraw();
 }
 
+/* Called to update the object */
 void Player::DoUpdate(int iCurrentTime) {
 	GameEngine* pEngine = GetEngine();
 
@@ -88,7 +109,7 @@ void Player::DoUpdate(int iCurrentTime) {
 	constrainInBounds(m_iDirX, m_iDirY);
 
 	// Hit Detection
-	if (m_iCurHealth > 0) {
+	if (m_iCurHealth >= 0) {
 		if (m_iIFrame-- < 0) {
 			hit(pEngine);
 		}
@@ -103,10 +124,16 @@ void Player::DoUpdate(int iCurrentTime) {
 	RedrawObjects();
 }
 
+/* Called on entity death */
 void Player::onDeath() {
-	deleteSelf();
+	//deleteSelf();
+	//m_pState->unloadState(GameState::PLAY);
+	m_pState->initState(GameState::PLAY);
+	m_pState->setState(GameState::PLAY);
+	m_pEngine->Redraw(true);
 }
 
+/* Handles movement of the player with keypresses */
 void Player::move(GameEngine* pEngine) {
 	// If shift is held move at half speed
 	if (pEngine->IsKeyPressed(SDLK_LSHIFT)) {
@@ -151,6 +178,7 @@ void Player::move(GameEngine* pEngine) {
 	}
 }
 
+/* Calculates if the player has been hit */
 void Player::hit(GameEngine* pEngine) {
 	DisplayableObject* pob = nullptr;
 	for (int i = 0; i < pEngine->GetLengthOfObjectArray(); i++) {
@@ -162,13 +190,23 @@ void Player::hit(GameEngine* pEngine) {
 
 			if (checkIntersection(e)) {
 				dealDamage(1);
-				m_iIFrame = 60;
+				m_iIFrame = 80;
+				double xarray[20], yarray[20];
+
+				for (int i = 0; i < 20; i++) {
+					int r = Utility::randBetween(15, 25);
+					xarray[i] = GetXCentre() + r * cos((MY_PI / 10) * i);
+					yarray[i] = GetYCentre() + r * sin((MY_PI / 10) * i);
+				}
+
+				GetEngine()->DrawBackgroundPolygon(20, xarray, yarray, 0xD32F2F);
 				return;
 			}
 		}
 	}
 }
 
+/* Handles shooting with keypresses */
 void Player::shoot(GameEngine* pEngine) {
 	if (m_iShotDelay <= 0) {
 		if (pEngine->IsKeyPressed(SDLK_LCTRL)) {
@@ -272,8 +310,6 @@ void Player::shoot(GameEngine* pEngine) {
 				m_iShotDelay = SHOT_DELAY;
 			}
 		}
-
-		
 	}
 	else {
 		m_iShotDelay--;

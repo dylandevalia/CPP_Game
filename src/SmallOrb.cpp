@@ -15,6 +15,7 @@ SmallOrb::SmallOrb(GameEngine* pEngine, GameTileManager* pTile, bool tile, int x
 SmallOrb::~SmallOrb() {
 }
 
+/* Used to draw object */
 void SmallOrb::Draw() {
 	if (m_iDmg-- > 0) {
 		m_sSprite.FlexibleRenderImageWithMask(
@@ -43,8 +44,10 @@ void SmallOrb::Draw() {
 	StoreLastScreenPositionForUndraw();
 }
 
+/* Called on entity death */
 void SmallOrb::onDeath() {
 	GameEngine* pEngine = GetEngine();
+	// Spawn 2 spiders
 	pEngine->DrawableObjectsChanged();
 	int x = GetXCentre(), y = GetYCentre();
 	pEngine->StoreObjectInArrayAtEnd(new Spider(pEngine, m_pTile, false, x - 10, y - 10));

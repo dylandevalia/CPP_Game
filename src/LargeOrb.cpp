@@ -19,6 +19,7 @@ LargeOrb::~LargeOrb() {
 }
 
 
+/* Used to draw the object */
 void LargeOrb::Draw() {
 	if (m_iDmg-- > 0) {
 		m_sSprite.FlexibleRenderImageWithMask(
@@ -47,8 +48,10 @@ void LargeOrb::Draw() {
 	StoreLastScreenPositionForUndraw();
 }
 
+/* Called on entity death */
 void LargeOrb::onDeath() {
 	GameEngine* pEngine = GetEngine();
+	// Spawn 4 small orbs
 	pEngine->DrawableObjectsChanged();
 	int x = GetXCentre(), y = GetYCentre();
 	pEngine->StoreObjectInArrayAtEnd(new SmallOrb(pEngine, m_pTile, false, x-25, y-25, -1, -1));

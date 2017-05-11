@@ -7,6 +7,8 @@ public:
 	SmallOrb(GameEngine*, GameTileManager*, bool, int, int);
 	~SmallOrb();
 
+	/* Used to draw object */
 	void Draw();
+	/* Called on entity death */
 	void onDeath();
 };

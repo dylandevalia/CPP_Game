@@ -16,6 +16,14 @@ public:
 		return ((value - start1) / (stop1 - start1))*(stop2 - start2) + start2;
 	}
 
+	/*
+	Returns the sign of the value
+	Eg. sign(-352) = -1, sign(42) = 1, sign(0) = 0
+
+	@param value The value to get the sign of
+
+	@return The sign value of the given value
+	*/
 	static int sign(int value) {
 		if (value > 0) {
 			return 1;
@@ -25,6 +33,14 @@ public:
 		return 0;
 	}
 
+	/* 
+	Returns a random number between the min and max
+
+	@param min The minimum value
+	@param max The maximum value
+
+	@return A random number between the min and max values
+	*/
 	static int randBetween(int min, int max) {
 		return rand() % (max - min + 1) + min;
 	}

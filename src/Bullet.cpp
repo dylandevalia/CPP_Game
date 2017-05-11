@@ -17,6 +17,7 @@ Bullet::~Bullet()
 {
 }
 
+/* Used to draw object */
 void Bullet::Draw() {
 	if (m_xdir == 1) { // Right
 		m_sSprite.FlexibleRenderImageWithMask(
@@ -67,6 +68,7 @@ void Bullet::Draw() {
 	StoreLastScreenPositionForUndraw();
 }
 
+/* Called to update the object */
 void Bullet::DoUpdate(int iCurrentTime) {
 	if (--m_lifeSpan <= 0) {
 		onDeath();
@@ -88,6 +90,7 @@ void Bullet::DoUpdate(int iCurrentTime) {
 	RedrawObjects();
 }
 
+/* Checks if the entity hits a hostile entity */
 void Bullet::checkCollision() {
 	DisplayableObject* pob = nullptr;
 	for (int index = 0; index < GetEngine()->GetLengthOfObjectArray(); index++) {
@@ -111,6 +114,7 @@ void Bullet::checkCollision() {
 #include <math.h>
 #include "Utility.h"
 
+/* Called on entity death */
 void Bullet::onDeath() {
 	double xarray[10], yarray[10];
 

@@ -177,6 +177,9 @@
     <ClInclude Include="Spider.h">
       <Filter>Header Files\Entities\Hostile</Filter>
     </ClInclude>
+    <ClInclude Include="AdvSpider.h">
+      <Filter>Header Files\Entities\Hostile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp">
@@ -288,6 +291,9 @@
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Spider.cpp">
+      <Filter>Source Files\Entities\Hostile</Filter>
+    </ClCompile>
+    <ClCompile Include="AdvSpider.cpp">
       <Filter>Source Files\Entities\Hostile</Filter>
     </ClCompile>
   </ItemGroup>

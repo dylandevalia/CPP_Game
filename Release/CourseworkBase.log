@@ -1,49 +1,90 @@
-﻿Build started 11/05/2017 03:04:22.
-     1>Project "Z:\CPP_Game\src\CourseworkBase.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/05/2017 01:14:28 PM.
+     1>Project "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\src\CourseworkBase.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\SDL\include /Zi /nologo /W1 /WX- /O2 /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Z:\CPP_Game\/Release\\" /Fd"Z:\CPP_Game\/Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Player.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 2013\VC\bin\CL.exe /c /I..\SDL\include /Zi /nologo /W1 /WX- /O2 /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\\" /Fd"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AdvSpider.cpp Bullet.cpp Entity.cpp Game.cpp GameEngine.cpp GameTileManager.cpp HomingBullet.cpp Hostile.cpp LargeOrb.cpp PauseState.cpp PlasmaOrb.cpp Player.cpp PlayState.cpp SmallOrb.cpp Spider.cpp StateManager.cpp mainfunction.cpp BaseEngine.cpp DisplayableObject.cpp FontManager.cpp JPGImage.cpp MenuState.cpp SimpleDemo.cpp State.cpp TileManager.cpp BouncingBall.cpp BouncingBallMain.cpp Demo1Main.cpp Demo2Main.cpp Demo2Object.cpp Demo2TileManager.cpp Demo3Main.cpp Demo3Object.cpp Demo3ObjectFinished.cpp Demo3TileManager.cpp Demo4Main.cpp Demo4Object.cpp Demo4TileManager.cpp
+         AdvSpider.cpp
+         Bullet.cpp
+         Entity.cpp
+         Game.cpp
+         GameEngine.cpp
+         GameTileManager.cpp
+         HomingBullet.cpp
+         Hostile.cpp
+         LargeOrb.cpp
+         PauseState.cpp
+         PlasmaOrb.cpp
          Player.cpp
+         PlayState.cpp
+         SmallOrb.cpp
+         Spider.cpp
+         StateManager.cpp
+         mainfunction.cpp
+         BaseEngine.cpp
+         DisplayableObject.cpp
+         FontManager.cpp
+         Generating Code...
+         Compiling...
+         JPGImage.cpp
+         MenuState.cpp
+         SimpleDemo.cpp
+         State.cpp
+         TileManager.cpp
+         BouncingBall.cpp
+         BouncingBallMain.cpp
+         Demo1Main.cpp
+         Demo2Main.cpp
+         Demo2Object.cpp
+         Demo2TileManager.cpp
+         Demo3Main.cpp
+         Demo3Object.cpp
+         Demo3ObjectFinished.cpp
+         Demo3TileManager.cpp
+         Demo4Main.cpp
+         Demo4Object.cpp
+         Demo4TileManager.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\CPP_Game\/Release\CourseworkBase.exe" /NOLOGO /LIBPATH:..\SDL\libx86 SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"Z:\CPP_Game\/Release\CourseworkBase.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE:NO /IMPLIB:"Z:\CPP_Game\/Release\CourseworkBase.lib" /MACHINE:X86 /SAFESEH Z:\CPP_Game\/Release\Bullet.obj
-         Z:\CPP_Game\/Release\Entity.obj
-         Z:\CPP_Game\/Release\Game.obj
-         Z:\CPP_Game\/Release\GameEngine.obj
-         Z:\CPP_Game\/Release\GameTileManager.obj
-         Z:\CPP_Game\/Release\HomingBullet.obj
-         Z:\CPP_Game\/Release\Hostile.obj
-         Z:\CPP_Game\/Release\LargeOrb.obj
-         Z:\CPP_Game\/Release\PauseState.obj
-         Z:\CPP_Game\/Release\PlasmaOrb.obj
-         Z:\CPP_Game\/Release\Player.obj
-         Z:\CPP_Game\/Release\PlayState.obj
-         Z:\CPP_Game\/Release\SmallOrb.obj
-         Z:\CPP_Game\/Release\Spider.obj
-         Z:\CPP_Game\/Release\StateManager.obj
-         Z:\CPP_Game\/Release\mainfunction.obj
-         Z:\CPP_Game\/Release\BaseEngine.obj
-         Z:\CPP_Game\/Release\DisplayableObject.obj
-         Z:\CPP_Game\/Release\FontManager.obj
-         Z:\CPP_Game\/Release\JPGImage.obj
-         Z:\CPP_Game\/Release\MenuState.obj
-         Z:\CPP_Game\/Release\SimpleDemo.obj
-         Z:\CPP_Game\/Release\State.obj
-         Z:\CPP_Game\/Release\TileManager.obj
-         Z:\CPP_Game\/Release\BouncingBall.obj
-         Z:\CPP_Game\/Release\BouncingBallMain.obj
-         Z:\CPP_Game\/Release\Demo1Main.obj
-         Z:\CPP_Game\/Release\Demo2Main.obj
-         Z:\CPP_Game\/Release\Demo2Object.obj
-         Z:\CPP_Game\/Release\Demo2TileManager.obj
-         Z:\CPP_Game\/Release\Demo3Main.obj
-         Z:\CPP_Game\/Release\Demo3Object.obj
-         Z:\CPP_Game\/Release\Demo3ObjectFinished.obj
-         Z:\CPP_Game\/Release\Demo3TileManager.obj
-         Z:\CPP_Game\/Release\Demo4Main.obj
-         Z:\CPP_Game\/Release\Demo4Object.obj
-         Z:\CPP_Game\/Release\Demo4TileManager.obj
-         CourseworkBase.vcxproj -> Z:\CPP_Game\/Release\CourseworkBase.exe
-     1>Done Building Project "Z:\CPP_Game\src\CourseworkBase.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\CourseworkBase.exe" /NOLOGO /LIBPATH:..\SDL\libx86 SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\CourseworkBase.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE:NO /IMPLIB:"D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\CourseworkBase.lib" /MACHINE:X86 /SAFESEH "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\AdvSpider.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Bullet.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Entity.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Game.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\GameEngine.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\GameTileManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\HomingBullet.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Hostile.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\LargeOrb.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\PauseState.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\PlasmaOrb.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Player.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\PlayState.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\SmallOrb.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Spider.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\StateManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\mainfunction.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\BaseEngine.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\DisplayableObject.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\FontManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\JPGImage.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\MenuState.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\SimpleDemo.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\State.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\TileManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\BouncingBall.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\BouncingBallMain.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo1Main.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo2Main.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo2Object.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo2TileManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo3Main.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo3Object.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo3ObjectFinished.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo3TileManager.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo4Main.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo4Object.obj"
+         "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\Demo4TileManager.obj"
+         CourseworkBase.vcxproj -> D:\Google Drive\Uni\Year 2\CPP\CPP_Game\/Release\CourseworkBase.exe
+     1>Done Building Project "D:\Google Drive\Uni\Year 2\CPP\CPP_Game\src\CourseworkBase.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.70
+Time Elapsed 00:00:06.68

@@ -9,13 +9,13 @@ b~~~~~~~~~~~~~b
 b~~~~~~~~~~~~~b
 bbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbb
-b~~~~~~~~~~~~~b
+bc~~~~~~~~~~~cb
 b~~~~~~~~~~~~~b
 b~~~~~~~~~~~~~b
 b~~~i~~~~~~~e~b
 b~~~~~~~~~~~~~b
 b~~~~~~~~~~~~~b
-b~~~~~~~~~~~~~b
+bc~~~~~~~~~~~cb
 bbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbb
 b~~~~~~~~~~~~~b
@@ -28,8 +28,8 @@ b~~~~~~~~~~~~~b
 bbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbb
 b~~~~~~~~~~~~~b
-b~~~g~g~g~g~~~b
-b~~~~g~g~g~~~~b
+b~~~f~g~g~f~~~b
+b~~~~f~g~f~~~~b
 b~~~~~g~g~~~~~b
 b~~~~~~~~~~~~~b
 b~~~~~~~~~~~~~b
@@ -57,8 +57,9 @@ bbbbbbbbbbbbbbb
 b~~~~~~e~~~~~~b
 b~~c~~~~~~~c~~b
 b~~~~c~~~c~~~~b
-b~~g~~~c~~~g~~b
+b~~f~~~c~~~f~~b
 b~~~~c~~~c~~~~b
 b~~c~~~h~~~c~~b
 b~~~~~~~~~~~~~b
+bbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbb

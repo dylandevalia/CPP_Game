@@ -51,9 +51,9 @@ void Entity::constrainInBounds(int xdir, int ydir) {
 
 /* Checks if the entity is on safe tiles */
 bool Entity::isInBounds() {
-	return isInBounds(m_iCurrentScreenX,                    m_iCurrentScreenY)                 // left  up
+	return isInBounds(m_iCurrentScreenX,                    m_iCurrentScreenY)                     // left  up
 		&& isInBounds(m_iCurrentScreenX,                    m_iCurrentScreenY + m_iDrawHeight - 1) // left  down
-		&& isInBounds(m_iCurrentScreenX + m_iDrawWidth - 1, m_iCurrentScreenY)                 // right up
+		&& isInBounds(m_iCurrentScreenX + m_iDrawWidth - 1, m_iCurrentScreenY)                     // right up
 		&& isInBounds(m_iCurrentScreenX + m_iDrawWidth - 1, m_iCurrentScreenY + m_iDrawHeight - 1) // right down
 	;
 }

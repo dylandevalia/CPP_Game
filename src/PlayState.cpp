@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "LargeOrb.h"
 #include "SmallOrb.h"
-#include "Spider.h"
+#include "AdvSpider.h"
 
 #include <iostream>
 
@@ -94,21 +94,6 @@ void PlayState::mouseUp(int iButton, int iX, int iY) {
 /* -------- */
 
 int PlayState::initialiseObjects() {
-	/*
-	// Informs the engine that the drawable objects have changed
-	m_pGame->DrawableObjectsChanged();
-
-	// Destorys all existing objects
-	m_pGame->DestoryOldObjects();
-
-	// Creates new array and adds new object
-	m_pGame->CreateObjectArray(0);
-	m_pGame->StoreObjectInArrayAtEnd(new LargeOrb(m_pGame, 10, 4));
-	//m_pGame->StoreObjectInArrayAtEnd(new SmallOrb(m_pGame, 200, 200));
-	m_pGame->StoreObjectInArrayAtEnd(new Player(m_pGame, 1, 1));
-	//printf("%d\n", m_pGame->GetLengthOfObjectArray());
-	*/
-
 	return 0;
 }
 
@@ -166,12 +151,13 @@ void PlayState::loadLevel() {
 			m_pTile->SetValue(x, y, value);
 			switch (value) {
 				case 4: // e: player
-					m_pGame->StoreObjectInArrayAtEnd(new Player(m_pGame, m_pTile, true, x, y));
+					m_pGame->StoreObjectInArrayAtEnd(new Player(m_pGame, m_pTile, m_pStateManager, true, x, y));
 					break;
-				case 5: // f: fly
-					break;
-				case 6: // g: spider
+				case 5: // f: spider
 					m_pGame->StoreObjectInArrayAtBeginning(new Spider(m_pGame, m_pTile, true, x, y));
+					break;
+				case 6: // g: adv. spider
+					m_pGame->StoreObjectInArrayAtBeginning(new AdvSpider(m_pGame, m_pTile, true, x, y));
 					break;
 				case 7: // h: small orb
 					m_pGame->StoreObjectInArrayAtBeginning(new SmallOrb(m_pGame, m_pTile, true, x, y));

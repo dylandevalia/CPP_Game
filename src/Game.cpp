@@ -17,6 +17,7 @@ Game::~Game() {
 
 }
 
+/* Main game loop */
 int Game::MainLoop(void) {
 	{
 		SDL_Event event;

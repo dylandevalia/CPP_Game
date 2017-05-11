@@ -12,6 +12,7 @@ PlasmaOrb::~PlasmaOrb()
 {
 }
 
+/* Used to draw object */
 void PlasmaOrb::Draw() {
 	if (m_iDmg-- > 0) {
 		GetEngine()->DrawScreenOval(
@@ -42,6 +43,7 @@ void PlasmaOrb::Draw() {
 	StoreLastScreenPositionForUndraw();
 }
 
+/* Called to update the object */
 void PlasmaOrb::DoUpdate(int iCurrentTime) {
 	if (getHealth() > 0) {
 		m_iCurrentScreenX += m_iDirX;
@@ -55,15 +57,32 @@ void PlasmaOrb::DoUpdate(int iCurrentTime) {
 	}
 }
 
+/* Called on entity death -- subclasses need to overwrite this */
 void PlasmaOrb::onDeath() {
 
 }
 
+/* Constrains the entity within the screen bounds */
 void PlasmaOrb::constrainInBounds() {
-	if (m_iCurrentScreenX <= 50 || m_iCurrentScreenX >= GetEngine()->GetScreenWidth() - m_iDrawWidth - 50) {
+	// Reverse direction
+	if (m_iCurrentScreenX <= 50 || m_iCurrentScreenX >= GetEngine()->GetScreenWidth() - m_iDrawWidth - 51) {
 		m_iDirX *= -1;
 	}
-	if (m_iCurrentScreenY <= 50 || m_iCurrentScreenY >= GetEngine()->GetScreenHeight() - m_iDrawHeight - 50) {
+	if (m_iCurrentScreenY <= 50 || m_iCurrentScreenY >= GetEngine()->GetScreenHeight() - m_iDrawHeight - 51) {
 		m_iDirY *= -1;
 	}
+
+	// Move back into bounds
+	/*
+	if (m_iCurrentScreenX <= 50) {
+		m_iCurrentScreenX = 50;
+	} else if (m_iCurrentScreenX >= GetEngine()->GetScreenWidth() - m_iDrawWidth - 51) {
+		m_iCurrentScreenX = GetEngine()->GetScreenWidth() - m_iDrawWidth - 51;
+	}
+	if (m_iCurrentScreenY <= 50) {
+		m_iCurrentScreenY = 50;
+	} else if (m_iCurrentScreenY >= GetEngine()->GetScreenHeight() - m_iDrawHeight - 51) {
+		m_iCurrentScreenY >= GetEngine()->GetScreenHeight() - m_iDrawHeight - 51;
+	}
+	*/
 }

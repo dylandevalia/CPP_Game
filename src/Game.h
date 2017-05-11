@@ -21,6 +21,7 @@ public:
 	Game();
 	~Game();
 
+	/* Main game loop */
 	int MainLoop(void);
 
 	// Events

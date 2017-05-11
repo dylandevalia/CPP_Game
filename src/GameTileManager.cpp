@@ -10,6 +10,7 @@ GameTileManager::~GameTileManager() {
 
 }
  
+/* Call to draw a tile at index using its value */
 void GameTileManager::DrawTileAt(
 	BaseEngine* pEngine,
 	SDL_Surface* pSurface,
@@ -77,6 +78,7 @@ void GameTileManager::DrawTileAt(
 	}
 }
 
+/* Sets all values */
 void GameTileManager::SetAllValues(int iValue) {
 	for (int y = 0; y < m_iMapHeight; y++) {
 		for (int x = 0; x < m_iMapWidth; x++) {
