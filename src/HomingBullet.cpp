@@ -68,7 +68,7 @@ void HomingBullet::Draw() {
 
 void HomingBullet::DoUpdate(int iCurrentTime) {
 	if (--m_lifeSpan <= 0) {
-		deleteSelf();
+		onDeath();
 		return;
 	}
 
@@ -91,7 +91,7 @@ void HomingBullet::DoUpdate(int iCurrentTime) {
 
 	// collisions
 	if (!isInBounds()) {
-		deleteSelf();
+		onDeath();
 		return;
 	}
 

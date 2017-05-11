@@ -12,8 +12,25 @@ Player::Player(GameEngine* pEngine, GameTileManager* pTile, bool tile, int xpos,
 	m_iDirY = 0;
 }
 
+Player::Player(GameEngine* pEngine, GameTileManager* pTile)
+	: Entity(pEngine, pTile, false, NULL, NULL, 50, 50, 3)
+{
+	m_iDirX = 0;
+	m_iDirY = 0;
+}
 
 Player::~Player() {
+}
+
+void Player::setPos(bool tile, int xpos, int ypos) {
+	if (tile) {
+		m_iCurrentScreenX = m_iPreviousScreenX = (xpos * 50) + 25 - (m_iDrawWidth / 2);
+		m_iCurrentScreenY = m_iPreviousScreenY = (ypos * 50) + 25 - (m_iDrawHeight / 2);
+	}
+	else {
+		m_iCurrentScreenX = m_iPreviousScreenX = xpos - (m_iDrawWidth / 2);
+		m_iCurrentScreenY = m_iPreviousScreenY = ypos - (m_iDrawHeight / 2);
+	}
 }
 
 void Player::Draw() {

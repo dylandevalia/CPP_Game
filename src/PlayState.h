@@ -45,6 +45,6 @@ public:
 	// Levels
 	void loadLevel();
 
-private:
-
+protected:
+	int prevLevel = -1;
 };

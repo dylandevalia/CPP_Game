@@ -38,14 +38,43 @@ void Spider::Draw() {
 	StoreLastScreenPositionForUndraw();
 }
 
+#include "Player.h"
+#include "Utility.h"
+#include <math.h>
+
 void Spider::DoUpdate(int iCurrentTime) {
 	switch (m_iState) {
 		case 0: // idle
 			if (m_iIdle-- < 0) {
 				m_iState = 1;
-				m_iWalk = (rand() % 40) + 20;
-				m_iDirX = rand() % 7 - 3;
-				m_iDirY = rand() % 7 - 3;
+				m_iWalk = (rand() % 30) + 20;
+				if (rand() % 2 == 0) {
+					m_iDirX = rand() % 7 - 3;
+					m_iDirY = rand() % 7 - 3;
+				} else {
+					Player* player;
+					for (int i = 0; i < GetEngine()->GetLengthOfObjectArray(); i++) {
+						DisplayableObject* pob = GetEngine()->GetDisplayableObject(i);
+						if (Player* p = dynamic_cast<Player*>(pob)) {
+							// player object
+							player = (Player*)pob;
+
+							// Vector from spider to player
+							m_iDirX = player->GetXCentre() - GetXCentre();
+							m_iDirY = player->GetYCentre() - GetYCentre();
+
+							// normalise 
+							double a = sqrt(m_iDirX*m_iDirX + m_iDirY*m_iDirY * 1.0);
+							double bx = m_iDirX / a, by = m_iDirY / a;
+							// magnitude by 3
+							m_iDirX = bx * 3;
+							m_iDirY = by * 3;
+
+							break;
+						}
+					}
+					
+				}
 			}
 			break;
 		case 1: // walk
@@ -64,6 +93,8 @@ void Spider::DoUpdate(int iCurrentTime) {
 	if (getHealth() < 0) {
 		onDeath();
 	}
+
+	RedrawObjects();
 }
 
 void Spider::onDeath() {

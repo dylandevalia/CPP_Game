@@ -17,4 +17,5 @@ public:
 	void Draw();
 	void DoUpdate(int);
 	void checkCollision();
+	void onDeath();
 };

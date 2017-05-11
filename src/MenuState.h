@@ -40,6 +40,6 @@ public:
 	void setupBackgroundBuffer();
 	void drawStrings();
 
-private:
-
+protected:
+	ImageData m_sBackground;
 };

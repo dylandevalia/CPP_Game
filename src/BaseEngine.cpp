@@ -992,15 +992,6 @@ void BaseEngine::DrawPolygon(
 		return;
 	}
 
-/*	if ( iPoints == 3 )
-	{
-		printf( "Draw triangle for points 0, 1, 2 of %d available\n", iPoints );
-		DrawTriangle( pXArray[0], pYArray[0], pXArray[1], pYArray[1], pXArray[2], pYArray[2],
-				uiColour, pTarget );
-		return;
-	}
-*/
-
 	// Otherwise attempt to eliminate a point by filling the polygon, then call this again
 	double fXCentre, fYCentre; //fX1, fX2, fX3, fY1, fY2, fY3;
 	int i2, i3;
@@ -1072,13 +1063,13 @@ void BaseEngine::DrawPolygon(
 
 			if ( !bPointIsWithinTriangle )
 			{// If not then try the next position
-				printf( "Draw for points %d, %d, %d of %d available\n", i1, i2, i3, iPoints );
+				//printf( "Draw for points %d, %d, %d of %d available\n", i1, i2, i3, iPoints );
 				DrawTriangle( pXArray[i1], pYArray[i1], pXArray[i2], pYArray[i2], 
 							pXArray[i3], pYArray[i3], /*GetColour(iPoints)*/uiColour, pTarget );
 				// Remove the point i2 and then recurse			
 				for ( int i = i2 ; i < (iPoints-1) ; i++ )
 				{
-					printf( "\tCopy point %d to %d\n", i+1, i );
+					//printf( "\tCopy point %d to %d\n", i+1, i );
 					pXArray[i] = pXArray[i+1];
 					pYArray[i] = pYArray[i+1];
 				}

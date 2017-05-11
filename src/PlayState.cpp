@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "LargeOrb.h"
 #include "SmallOrb.h"
+#include "Spider.h"
 
 #include <iostream>
 
@@ -66,6 +67,9 @@ void PlayState::keyDown(int iKeyCode) {
 			//m_pStateManager->initState(GameState::MENU);
 			m_pStateManager->setState(GameState::MENU);
 			break;
+		case SDLK_n:
+			loadLevel();
+			m_pStateManager->setState(GameState::PLAY);
 	}
 }
 
@@ -136,7 +140,10 @@ void PlayState::loadLevel() {
 	std::string::size_type sz;
 	int noLevels = std::stoi(strInput, &sz); // Convert str -> int
 	// Select random level
-	int levelToLoad = rand() % noLevels;
+	int levelToLoad;
+	do { levelToLoad = rand() % noLevels; } while (levelToLoad == prevLevel);
+	prevLevel = levelToLoad;
+	printf("Loading level - %d", levelToLoad);
 	// Skip to start of chosen level
 	for (int i = 1; i < (levelToLoad * 9) + 1; inf >> strInput, i++);
 
@@ -150,6 +157,7 @@ void PlayState::loadLevel() {
 	m_pGame->CreateObjectArray(0);
 
 	// Go through file to get level information
+	printf("\n");
 	for (int y = 0; y < 9; y++) {
 		inf >> strInput; // Get next line
 		cout << strInput << endl; // Print level to console
@@ -163,6 +171,7 @@ void PlayState::loadLevel() {
 				case 5: // f: fly
 					break;
 				case 6: // g: spider
+					m_pGame->StoreObjectInArrayAtBeginning(new Spider(m_pGame, m_pTile, true, x, y));
 					break;
 				case 7: // h: small orb
 					m_pGame->StoreObjectInArrayAtBeginning(new SmallOrb(m_pGame, m_pTile, true, x, y));
@@ -173,4 +182,5 @@ void PlayState::loadLevel() {
 			}
 		}
 	}
+	printf("\n");
 }

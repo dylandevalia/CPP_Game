@@ -69,7 +69,7 @@ void Bullet::Draw() {
 
 void Bullet::DoUpdate(int iCurrentTime) {
 	if (--m_lifeSpan <= 0) {
-		deleteSelf();
+		onDeath();
 		return;
 	}
 
@@ -78,7 +78,7 @@ void Bullet::DoUpdate(int iCurrentTime) {
 
 	// collisions
 	if (!isInBounds()) {
-		deleteSelf();
+		onDeath();
 		return;
 	}
 
@@ -100,10 +100,26 @@ void Bullet::checkCollision() {
 
 			if (checkIntersection(entity)) {
 				entity->dealDamage(1);
-				deleteSelf();
+				onDeath();
 				RedrawObjects();
 				return;
 			}
 		}
 	}
+}
+
+#include <math.h>
+#include "Utility.h"
+
+void Bullet::onDeath() {
+	double xarray[10], yarray[10];
+
+	for (int i = 0; i < 10; i++) {
+		int r = Utility::randBetween(5, 15);
+		xarray[i] = GetXCentre() + r * cos((MY_PI / 5) * i);
+		yarray[i] = GetYCentre() + r * sin((MY_PI / 5) * i);
+	}
+
+	GetEngine()->DrawBackgroundPolygon(10, xarray, yarray, 0xB5D195);
+	deleteSelf();
 }
